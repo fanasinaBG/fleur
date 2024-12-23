@@ -46,7 +46,8 @@ public class Fonction {
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, fleur.getNomFleur());
-            stmt.setDouble(2, fleur.getPrix());
+            stmt.setInt(2, fleur.getPrix());
+            
             stmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Erreur lors de la création : " + e.getMessage());
@@ -59,23 +60,37 @@ public class Fonction {
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, fleur.getNomFleur());
             stmt.setDouble(2, fleur.getPrix());
+            stmt.setInt(3, fleur.getId());
             stmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Erreur lors de la mise à jour : " + e.getMessage());
+        }
+        
+    }
+
+    public void deleteFleur(int id) {
+        String sql = "DELETE FROM fleur WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de la suppression : " + e.getMessage());
         }
     }
 
     public static void main(String[] args) {
         Fonction view = new Fonction();
 
-        view.fetchFleursCategories();
+       // view.fetchFleursCategories();
+        
+        // String nom = "Chainse";
+        // int prix = 50;
+        int id = 32;
 
-        String nom = "Chaise";
-        int prix = 45;
-
-        Fleur fleur = new Fleur(nom, prix);
-        view.updateFleur(fleur);
-        System.out.println("Fleur update avec succès !");
+        //Fleur fleur = new Fleur(id);
+        view.deleteFleur(id);
+        System.out.println("Fleur delete avec succès !");
 
         // Fleur fleur = new Fleur(nom, prix);
         // view.createFleur(fleur);
