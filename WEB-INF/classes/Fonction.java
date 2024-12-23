@@ -53,6 +53,18 @@ public class Fonction {
         }
     }
 
+    public void updateFleur(Fleur fleur) {
+        String sql = "UPDATE fleur SET nomFleur = ?, prix = ? WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, fleur.getNomFleur());
+            stmt.setDouble(2, fleur.getPrix());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de la mise à jour : " + e.getMessage());
+        }
+    }
+
     public static void main(String[] args) {
         Fonction view = new Fonction();
 
@@ -62,8 +74,14 @@ public class Fonction {
         int prix = 45;
 
         Fleur fleur = new Fleur(nom, prix);
-        view.createFleur(fleur);
-        System.out.println("Fleur ajouté avec succès !");
+        view.updateFleur(fleur);
+        System.out.println("Fleur update avec succès !");
+
+        // Fleur fleur = new Fleur(nom, prix);
+        // view.createFleur(fleur);
+        // System.out.println("Fleur ajouté avec succès !");
+
+
         
     }
 }
