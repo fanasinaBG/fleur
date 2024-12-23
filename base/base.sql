@@ -133,7 +133,11 @@ insert into payment(nomPayment)VALUES('Carte Bancaire');
 
 paymentDetail numero idPayment 
 
-insert into paymentDetail(numero,dPayment)VALUES(4970
+insert into paymentDetail(numero,idPayment)VALUES(4970101234567890,1);//mpbol tsy mandeh
+
+clients
+
+insert into clients(nomClient,email,mdp)VALUES('jibril','ibril@gmail.com','Karen');
 
 select * from fleur;
 
