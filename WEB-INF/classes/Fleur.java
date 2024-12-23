@@ -15,6 +15,11 @@ public class Fleur {
 
     
     
+    public Fleur(String nomFleur, int prix) {
+        this.nomFleur = nomFleur;
+        this.prix = prix;
+    }
+
     public Fleur() {
     }
     

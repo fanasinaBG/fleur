@@ -1,9 +1,7 @@
 package fleur;
 
 import connection.DatabaseConnection;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,8 +41,29 @@ public class Fonction {
         return fleurs;
     }
 
+    public void createFleur(Fleur fleur) {
+        String sql = "INSERT INTO fleur (nomFleur, prix) VALUES (?, ?)";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, fleur.getNomFleur());
+            stmt.setDouble(2, fleur.getPrix());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de la création : " + e.getMessage());
+        }
+    }
+
     public static void main(String[] args) {
         Fonction view = new Fonction();
+
         view.fetchFleursCategories();
+
+        String nom = "Chaise";
+        int prix = 45;
+
+        Fleur fleur = new Fleur(nom, prix);
+        view.createFleur(fleur);
+        System.out.println("Fleur ajouté avec succès !");
+        
     }
 }
