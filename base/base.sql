@@ -129,6 +129,7 @@ insert into fleur(nomFleur,prix,idCategory,descriptions,images)VALUES('Héméroc
 insert into fleur(nomFleur,prix,idCategory,descriptions,images)VALUES('Echinacea',5,6,'L échinacée est une plante vivace aux fleurs colorées en forme de marguerite, réputée pour ses propriétés médicinales, notamment pour renforcer le système immunitaire.','/assets/images/Echinacea.jpg');
 
 insert into payment(nomPayment)VALUES('PayPal');
+insert into payment(nomPayment)VALUES('Carte Bancaire');
 
 select * from fleur;
 

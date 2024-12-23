@@ -5,8 +5,7 @@ public class Categorie {
     private String nomCategory;
     private int idEvenement;
 
-    
-    
+
     public Categorie() {
     }
 
