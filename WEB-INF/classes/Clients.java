@@ -8,6 +8,14 @@ public class Clients {
     private int idPayment;
 
     
+    public Clients(int id, String nomClient, String email, String mdp) {
+        this.id = id;
+        this.nomClient = nomClient;
+        this.email = email;
+        this.mdp = mdp;
+    }
+
+
     public Clients() {
     }
 
