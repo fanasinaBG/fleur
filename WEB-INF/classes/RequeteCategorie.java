@@ -57,19 +57,31 @@ public class RequeteCategorie {
              return listCategorie;
     }
 
+    public void deleteCategorie(int id){
+        String sql = "DELETE FROM Category WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {    
+                stmt.setInt(1, id);    
+                stmt.executeUpdate();  
+             }
+             catch(SQLException e){
+                System.out.println("Erreur, tsy voafafa" + e.getMessage());
+             }
+    }
 
     public static void main(String[] args){
         RequeteCategorie categorie = new RequeteCategorie();
     
         // String nomCategorie = "test";
     
-        String nomCategorie = "vaovao";
+        // String nomCategorie = "vaovao";
         int id = 7;
         
         // Categorie category = new Categorie(id, nomCategorie);
         // categorie.createCategorie(category);
         // categorie.updateCategorie(category);
-        categorie.readCategorie();
+        // categorie.readCategorie();
+        categorie.deleteCategorie(id);
     }
     
 }
