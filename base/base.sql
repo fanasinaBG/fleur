@@ -131,6 +131,10 @@ insert into fleur(nomFleur,prix,idCategory,descriptions,images)VALUES('Echinacea
 insert into payment(nomPayment)VALUES('PayPal');
 insert into payment(nomPayment)VALUES('Carte Bancaire');
 
+paymentDetail numero idPayment 
+
+insert into paymentDetail(numero,dPayment)VALUES(4970
+
 select * from fleur;
 
 
