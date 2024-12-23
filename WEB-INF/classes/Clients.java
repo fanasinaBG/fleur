@@ -14,6 +14,11 @@ public class Clients {
         this.email = email;
         this.mdp = mdp;
     }
+    public Clients(String nomClient, String email, String mdp) {
+        this.nomClient = nomClient;
+        this.email = email;
+        this.mdp = mdp;
+    }
 
 
     public Clients() {
