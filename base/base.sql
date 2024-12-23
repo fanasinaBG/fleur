@@ -139,7 +139,7 @@ clients
 
 insert into clients(nomClient,email,mdp)VALUES('jibril','ibril@gmail.com','Karen');
 
-select * from fleur;
+select * from clients;
 
 
 
