@@ -16,7 +16,7 @@ public class RequeteClient {
                 stmt.setString(1,client.getNomClient());
                 stmt.setString(2,client.getEmail());
                 stmt.setString(3,client.getMdp());
-                stmt.executeUpdate(); 
+                stmt.executeUpdate();  
              }
              catch(SQLException e){
                 System.out.println("Erreur" + e.getMessage());
