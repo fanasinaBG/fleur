@@ -37,6 +37,27 @@ public class RequeteCategorie {
              }
     }
 
+    public List<String> readCategorie(){
+        List<String> listCategorie= new ArrayList<>();
+        String sql = "SELECT * FROM category ";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+                ResultSet resultSet = stmt.executeQuery();
+
+                while (resultSet.next()) {
+                    String nomCategorie = resultSet.getString("nomCategory");
+
+                    listCategorie.add(nomCategorie);
+                    System.out.println("Nom Categorie: " + nomCategorie);
+                }
+             }
+             catch(SQLException e){
+                System.out.println("Erreur" + e.getMessage());
+             }
+             return listCategorie;
+    }
+
+
     public static void main(String[] args){
         RequeteCategorie categorie = new RequeteCategorie();
     
@@ -45,10 +66,10 @@ public class RequeteCategorie {
         String nomCategorie = "vaovao";
         int id = 7;
         
-        Categorie category = new Categorie(id, nomCategorie);
+        // Categorie category = new Categorie(id, nomCategorie);
         // categorie.createCategorie(category);
-        categorie.updateCategorie(category);
-
+        // categorie.updateCategorie(category);
+        categorie.readCategorie();
     }
     
 }
