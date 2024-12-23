@@ -1,3 +1,5 @@
+package client;
+
 public class Clients {
     private int id;
     private String nomClient;
