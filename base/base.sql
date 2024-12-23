@@ -128,8 +128,8 @@ insert into fleur(nomFleur,prix,idCategory,descriptions,images)VALUES('Rudbeckia
 insert into fleur(nomFleur,prix,idCategory,descriptions,images)VALUES('Hémérocalle',13,6,'L hémérocalle est une fleur vivace aux grandes fleurs colorées, souvent de forme en trompette, qui fleurit pendant une courte période chaque été.','/assets/images/Hémérocalle.jpg');
 insert into fleur(nomFleur,prix,idCategory,descriptions,images)VALUES('Echinacea',5,6,'L échinacée est une plante vivace aux fleurs colorées en forme de marguerite, réputée pour ses propriétés médicinales, notamment pour renforcer le système immunitaire.','/assets/images/Echinacea.jpg');
 
-insert into payment(nomClient,email,mdp)VALUES('quotidient');
-insert into clients(nomClient,email,mdp)VALUES('quotidient');
+insert into payment(nomPayment)VALUES('PayPal');
+
 select * from fleur;
 
 
