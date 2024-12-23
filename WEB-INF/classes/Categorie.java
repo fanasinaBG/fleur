@@ -6,6 +6,11 @@ public class Categorie {
     private int idEvenement;
 
 
+    public Categorie(int id, String nomCategory) {
+        this.id = id;
+        this.nomCategory = nomCategory;
+    }
+
     public Categorie(String nomCategory) {
         this.nomCategory = nomCategory;
     }
