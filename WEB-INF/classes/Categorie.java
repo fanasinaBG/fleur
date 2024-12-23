@@ -6,6 +6,10 @@ public class Categorie {
     private int idEvenement;
 
 
+    public Categorie(String nomCategory) {
+        this.nomCategory = nomCategory;
+    }
+
     public Categorie() {
     }
 
