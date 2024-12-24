@@ -65,7 +65,7 @@ public class RequeteCategorie {
                 stmt.executeUpdate();  
              }
              catch(SQLException e){
-                System.out.println("Erreur, tsy voafafa" + e.getMessage());
+                System.out.println("Erreur de suppression" + e.getMessage());
              }
     }
 

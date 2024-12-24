@@ -22,7 +22,7 @@ public class RequeteEvent {
     }
 
     public List<String> readEvent(){
-        List<String> listCategorie= new ArrayList<>();
+        List<String> listEvent= new ArrayList<>();
         String sql = "SELECT * FROM evenement ";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -31,22 +31,38 @@ public class RequeteEvent {
                 while (resultSet.next()) {
                     String nomEvent = resultSet.getString("nomEvenement");
 
-                    listCategorie.add(nomEvent);
+                    listEvent.add(nomEvent);
                     System.out.println("Nom de l'evenement: " + nomEvent);
                 }
              }
              catch(SQLException e){
-                System.out.println("Erreur" + e.getMessage());
+                System.out.println("Erreur de lecture" + e.getMessage());
              }
-             return listCategorie;
+             return listEvent;
     }
+
+    public void updateEvent(Evenement event){
+        String sql = "UPDATE evenement SET nomEvenement = ? WHERE id=?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {    
+                stmt.setString(1, event.getNomEvenement());  
+                stmt.setInt(2, event.getId());    
+                stmt.executeUpdate();  
+             }
+             catch(SQLException e){
+                System.out.println("Erreur lors de la mise à jour" + e.getMessage());
+             }
+    } 
 
     public static void main(String[] args) {
         RequeteEvent requeteEvent = new RequeteEvent();
 
         // String nomEvent = "Mariage";
-        // Evenement event = new Evenement(nomEvent);
+        String nomEvent = "Anniversaire";
+        int id = 3;
+         Evenement event = new Evenement(id, nomEvent);
         // requeteEvent.createEvenement(event);
-        requeteEvent.readEvent();
+        // requeteEvent.readEvent();
+        requeteEvent.updateEvent(event);
     }
 }
