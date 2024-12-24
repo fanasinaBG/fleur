@@ -39,16 +39,29 @@ public class RequetePayment {
              return listPayement;
     }
 
+    public void updatePayment(Payment payement){
+        String sql = "UPDATE payment SET nomPayment = ? WHERE id=?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {    
+                stmt.setString(1, payement.getNomPayment());  
+                stmt.setInt(2, payement.getId());    
+                stmt.executeUpdate();  
+             }
+             catch(SQLException e){
+                System.out.println("Erreur lors de la mise à jour" + e.getMessage());
+             }
+    } 
+
     public static void main(String[] args) {
         RequetePayment requetePayment = new RequetePayment();
 
         // String nomPayment = "Mobile Money";
-        // String nomPayment = "Anniversaire";
-        // int id = 3;
-        //  Payment payement = new Payment (nomPayment);
+        String nomPayment = "Carte Visa";
+        int id = 3;
+         Payment payement = new Payment (id, nomPayment);
         // requetePayment.createPayment(payement);
-        requetePayment.readPayment();
-        // requetePayment.updatePayment(event);
+        // requetePayment.readPayment();
+        requetePayment.updatePayment(payement);
         // requetePayment.deletePayment(id);
     }
 
