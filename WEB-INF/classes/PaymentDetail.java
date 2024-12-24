@@ -3,7 +3,10 @@ public class PaymentDetail {
     private int numero;
     private int idPayment;
 
-    
+    public PaymentDetail(int numero, int idPayment) {
+        this.numero = numero;
+        this.idPayment = idPayment;
+    }
     public PaymentDetail() {
     }
     public PaymentDetail(int id, int numero, int idPayment) {
@@ -11,7 +14,6 @@ public class PaymentDetail {
         this.numero = numero;
         this.idPayment = idPayment;
     }
-
 
 
     public int getId() {
