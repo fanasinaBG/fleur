@@ -4,8 +4,7 @@ public class Evenement {
     private int id;
     private String nomEvenement;
 
-        
-    
+            
     public Evenement() {
     }
     public Evenement(String nomEvenement) {
@@ -15,6 +14,7 @@ public class Evenement {
         this.id = id;
         this.nomEvenement = nomEvenement;
     }
+
     public int getId() {
         return id;
     }
