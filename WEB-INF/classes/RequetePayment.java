@@ -52,17 +52,29 @@ public class RequetePayment {
              }
     } 
 
+    public void deletePayment(int id){
+        String sql = "DELETE FROM payment WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {    
+                stmt.setInt(1, id);    
+                stmt.executeUpdate();  
+             }
+             catch(SQLException e){
+                System.out.println("Erreur de suppression" + e.getMessage());
+             }
+    }
+
     public static void main(String[] args) {
         RequetePayment requetePayment = new RequetePayment();
 
         // String nomPayment = "Mobile Money";
-        String nomPayment = "Carte Visa";
+        // String nomPayment = "Carte Visa";
         int id = 3;
-         Payment payement = new Payment (id, nomPayment);
+        //  Payment payement = new Payment (id, nomPayment);
         // requetePayment.createPayment(payement);
         // requetePayment.readPayment();
-        requetePayment.updatePayment(payement);
-        // requetePayment.deletePayment(id);
+        // requetePayment.updatePayment(payement);
+        requetePayment.deletePayment(id);
     }
 
 }
