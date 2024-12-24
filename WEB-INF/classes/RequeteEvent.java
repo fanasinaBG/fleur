@@ -54,15 +54,28 @@ public class RequeteEvent {
              }
     } 
 
+    public void deleteEvent(int id){
+        String sql = "DELETE FROM evenement WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {    
+                stmt.setInt(1, id);    
+                stmt.executeUpdate();  
+             }
+             catch(SQLException e){
+                System.out.println("Erreur de suppression" + e.getMessage());
+             }
+    }
+
     public static void main(String[] args) {
         RequeteEvent requeteEvent = new RequeteEvent();
 
         // String nomEvent = "Mariage";
-        String nomEvent = "Anniversaire";
+        // String nomEvent = "Anniversaire";
         int id = 3;
-         Evenement event = new Evenement(id, nomEvent);
+        //  Evenement event = new Evenement(id, nomEvent);
         // requeteEvent.createEvenement(event);
         // requeteEvent.readEvent();
-        requeteEvent.updateEvent(event);
+        // requeteEvent.updateEvent(event);
+        requeteEvent.deleteEvent(id);
     }
 }
