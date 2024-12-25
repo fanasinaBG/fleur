@@ -4,7 +4,12 @@
 <%@ page import="java.util.List" %>
 <%@ page import="fleur.Fonction" %>
 <%@ page import="connection.DatabaseConnection" %>
-
+<%@ page import="categorie.RequeteCategorie" %>
+<%
+    // Créer une instance de votre DAO et récupérer la liste des catégories
+    RequeteCategorie Category = new RequeteCategorie();
+    List<String> categories = Category.readCategorie();  // Appel de la méthode pour récupérer les catégories
+%>
 
 
 <!DOCTYPE html>
@@ -97,12 +102,14 @@
         <button type="submit">Chercher</button>
     </form>
     <div class="dropdown">
-        <div class="dropdown-item">Suggestion 1</div>
-        <div class="dropdown-item">Suggestion 2</div>
-        <div class="dropdown-item">Suggestion 3</div>
-        <div class="dropdown-item">Suggestion 4</div>
-        <div class="dropdown-item">Suggestion 5</div>
-        <div class="dropdown-item">Suggestion 6</div>
+     <% 
+            // Boucle pour afficher chaque nom de fleur dans le menu déroulant
+            for (String categorie : categories) {
+        %>
+            <div class="dropdown-item"><%= categorie %></div>
+        <% 
+            }
+        %>
       </div>
       <div class="allCategory">
       <p>Tout categorie</p>

@@ -80,8 +80,8 @@ public class RequeteCategorie {
         // Categorie category = new Categorie(id, nomCategorie);
         // categorie.createCategorie(category);
         // categorie.updateCategorie(category);
-        // categorie.readCategorie();
-        categorie.deleteCategorie(id);
+         categorie.readCategorie();
+        //categorie.deleteCategorie(id);
     }
     
 }

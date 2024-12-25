@@ -11,6 +11,8 @@ CREATE TABLE category (
     Foreign Key (idEvenement) REFERENCES evenement(id) 
 );
 
+select * from category;
+
 CREATE TABLE fleur (
     id SERIAL PRIMARY KEY, 
     nomFleur VARCHAR(100) NOT NULL,
