@@ -8,7 +8,7 @@
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" />
 </head>
 <body>
-	<form action="log.html" method="POST">
+	<form action="Traitement/log.jsp" method="POST">
   	<div class="login">
     		<div class="wrapper">
       			<div class="st">
@@ -19,13 +19,13 @@
         				<div class="form">
           					<div class="name">
             						<div class="bg">
-										<input type="text" name="query" placeholder="Nom">
+										<input type="text" name="nom" placeholder="Nom">
 										<img class="iconlyboldprofile" alt="" src="assets/icon/Profile.svg">
             						</div>
           					</div>
           					<div class="name">
             						<div class="bg">
-										<input type="text" name="query" placeholder="E-mail">
+										<input type="text" name="email" placeholder="E-mail">
 										<img class="envelope-light-solid" alt="" src="assets/icon/Solid.svg">
             						</div>
             						
