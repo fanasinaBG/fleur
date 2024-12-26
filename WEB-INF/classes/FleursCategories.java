@@ -27,10 +27,10 @@ public class FleursCategories {
     public void setNomFleur(String nomFleur) {
         this.nomFleur = nomFleur;
     }
-    public double getPrix() {
+    public int getPrix() {
         return prix;
     }
-    public void setPrix(double prix) {
+    public void setPrix(int prix) {
         this.prix = prix;
     }
     public String getDescriptions() {

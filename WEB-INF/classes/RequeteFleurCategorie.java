@@ -8,7 +8,7 @@ import java.util.List;
 import fleur.FleursCategories;
 
 public class RequeteFleurCategorie {
-    public List<FleursCategories>  fleurCategory() {
+    public static List<FleursCategories>  fleurCategory() {
         List<FleursCategories> FleurCategorie= new ArrayList<>();
         String query = "SELECT * FROM vue_fleurs_categories";
 

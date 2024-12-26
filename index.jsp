@@ -6,12 +6,15 @@
 <%@ page import="connection.DatabaseConnection" %>
 <%@ page import="categorie.RequeteCategorie" %>
 <%@ page import="fleur.Fleur" %>
+<%@ page import="fleur.RequeteFleurCategorie" %>
+<%@ page import="fleur.FleursCategories" %>
 <%
     // Créer une instance de votre DAO et récupérer la liste des catégories
     RequeteCategorie Category = new RequeteCategorie();
     List<String> categories = Category.readCategorie();  // Appel de la méthode pour récupérer les catégories
     Fonction fonction = new Fonction();
     List<Fleur> fleurs = fonction.getShuffledFleurs(6);
+    List<FleursCategories> FleurCategorie = RequeteFleurCategorie.fleurCategory();
 %>
 
 
@@ -118,6 +121,21 @@
       <div class="allCategory">
       <p>Tout categorie</p>
     </div>
-    
-    		</body>
+    <div class="scroll-content">
+        <% 
+            for (FleursCategories categoryFleur : FleurCategorie) {
+        %>
+            <div class="image-item">
+                <img src="<%=request.getContextPath() + categoryFleur.getImages() %>"alt="Image 1">
+                <div class="image-details">
+                    <h4><%=categoryFleur.getNomFleur()%></h4>
+                    <p><%=categoryFleur.getPrix() %></p>
+                    <p><%=categoryFleur.getNomCategory() %></p>
+                </div>
+            </div>
+            <% 
+                }
+             %>
+    </div>
+    </body>
 </html>
