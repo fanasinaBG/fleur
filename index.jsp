@@ -9,6 +9,7 @@
     // Créer une instance de votre DAO et récupérer la liste des catégories
     RequeteCategorie Category = new RequeteCategorie();
     List<String> categories = Category.readCategorie();  // Appel de la méthode pour récupérer les catégories
+    List<Fleur> fleurs = Category.getShuffledFleurs(4);
 %>
 
 
@@ -62,37 +63,27 @@
     </div>
    
         <div class="content">
-        <div class="block-02">
+    <% 
+        if (randomFleurs != null && !randomFleurs.isEmpty()) {
+            for (int i = 0; i < randomFleurs.size(); i++) {
+                Fleur fleur = randomFleurs.get(i);
+    %>
+    <div class="block-02">
         <div class="image2">
-        <div class="image-container1">
-        </div>
-        </div>
-        <div class="image2">
-        <div class="image-container1">
-        </div>
-        </div>
-        </div>
-        <div class="block-02">
-            <div class="image2">
             <div class="image-container1">
+                <img src="<%= fleur.getImages() %>" alt="<%= fleur.getNomFleur() %>" class="fleur-image">
             </div>
-            </div>
-            <div class="image2">
-            <div class="image-container1">
-            </div>
-            </div>
-            </div>
-        <div class="block-02">
-        <div class="image2">
-        <div class="image-container1">
         </div>
-        </div>
-        <div class="image2">
-        <div class="image-container1">
-        </div>
-        </div>
-        </div>
-        </div>
+    </div>
+    <% 
+            }
+        } else { 
+    %>
+    <p>Aucune image disponible.</p>
+    <% 
+        } 
+    %>
+</div>
 
         </div>
     </div>

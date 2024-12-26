@@ -4,7 +4,10 @@ import connection.DatabaseConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
+import fleur.FleursCategories;
 
 
 public class Fonction {
@@ -19,12 +22,13 @@ public class Fonction {
             // Parcourir les résultats
             while (resultSet.next()) {
                 String nomFleur = resultSet.getString("nomFleur");
-                double prix = resultSet.getDouble("prix");
+                int prix = resultSet.getInt("prix");
                 String descriptions = resultSet.getString("descriptions");
                 String images = resultSet.getString("images");
                 int categoryId = resultSet.getInt("category_id");
-                String nomCategory = resultSet.getString("nomCategory");
-                fleurs.add(nomFleur + prix + descriptions + images + categoryId + nomCategory + nomCategory);
+                // String nomCategory = resultSet.getString("nomCategory");
+                Fleur fleur = new Fleur(nomFleur, prix, categoryId,descriptions, images );
+                fleurs.add(fleur);
 
                 // Afficher les données (ou les traiter selon vos besoins)
                 System.out.println("Nom Fleur: " + nomFleur);
@@ -39,6 +43,22 @@ public class Fonction {
             e.printStackTrace();
         }
         return fleurs;
+    }
+
+    // Mélanger les fleurs
+    public List<Fleur> shuffleFleursCategories(List<Fleur> fleurs) {
+        Collections.shuffle(fleurs);
+        return fleurs;
+    }
+
+    // Obtenir les fleurs mélangées
+    public List<Fleur> getShuffledFleurs(int limit) {
+        List<Fleur> fleurs = fetchFleursCategories();
+         shuffleFleursCategories(fleurs);
+
+
+        // Limiter la liste au nombre spécifié
+        return fleurs.size() > limit ? fleurs.subList(0, limit) : fleurs;
     }
 
     public void createFleur(Fleur fleur) {
