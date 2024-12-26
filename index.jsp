@@ -5,11 +5,13 @@
 <%@ page import="fleur.Fonction" %>
 <%@ page import="connection.DatabaseConnection" %>
 <%@ page import="categorie.RequeteCategorie" %>
+<%@ page import="fleur.Fleur" %>
 <%
     // Créer une instance de votre DAO et récupérer la liste des catégories
     RequeteCategorie Category = new RequeteCategorie();
     List<String> categories = Category.readCategorie();  // Appel de la méthode pour récupérer les catégories
-    List<Fleur> fleurs = Category.getShuffledFleurs(4);
+    Fonction fonction = new Fonction();
+    List<Fleur> fleurs = fonction.getShuffledFleurs(6);
 %>
 
 
@@ -64,18 +66,29 @@
    
         <div class="content">
     <% 
-        if (randomFleurs != null && !randomFleurs.isEmpty()) {
-            for (int i = 0; i < randomFleurs.size(); i++) {
-                Fleur fleur = randomFleurs.get(i);
+        if (fleurs != null && !fleurs.isEmpty()) {
+            for (int i = 0; i < fleurs.size(); i++) {
+                Fleur fleur = fleurs.get(i);
+                System.out.println("Image Path: " + request.getContextPath() + fleur.getImages());
+                if(i % 2 == 0) { 
+
     %>
     <div class="block-02">
+    <% 
+                } 
+    %>
         <div class="image2">
             <div class="image-container1">
-                <img src="<%= fleur.getImages() %>" alt="<%= fleur.getNomFleur() %>" class="fleur-image">
+                <img src="<%=request.getContextPath() + fleur.getImages() %>" alt="<%= fleur.getNomFleur() %>" class="fleur-image">
             </div>
         </div>
+        <% 
+                // Fermer le block-02 après 2 images ou à la dernière image
+                if (i % 2 == 1 || i == fleurs.size() - 1) { 
+    %>
     </div>
-    <% 
+    <%     
+        }
             }
         } else { 
     %>

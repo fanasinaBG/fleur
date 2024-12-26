@@ -487,10 +487,15 @@
    flex-direction: column;
    align-items: flex-start;
    justify-content: flex-start;
-   width: 500;
+   width: 50px;
+}
+.fleur-image {
+   width: 40px;  /* Largeur fixe */
+   height: 20px; /* Hauteur fixe */
+   object-fit: cover; /* Assure que l'image couvre toute la zone sans déformation */
 }
 .block-02 {
-   width: 1000px;
+   width: 100px;
    display: flex;
    flex-direction: row;
    align-items: flex-start;

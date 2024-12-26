@@ -7,12 +7,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
 import fleur.FleursCategories;
 
 
 public class Fonction {
-    public List<String> fetchFleursCategories() {
-        List<String> fleurs= new ArrayList<>();
+    public List<Fleur>  fetchFleursCategories() {
+        List<Fleur> fleurs= new ArrayList<>();
         String query = "SELECT * FROM vue_fleurs_categories";
 
         try (Connection connection = DatabaseConnection.getConnection();
@@ -36,7 +37,7 @@ public class Fonction {
                 System.out.println("Descriptions: " + descriptions);
                 System.out.println("Images: " + images);
                 System.out.println("Category ID: " + categoryId);
-                System.out.println("Nom Category: " + nomCategory);
+                //System.out.println("Nom Category: " + nomCategory);
                 System.out.println("----------------------------");
             }
         } catch (Exception e) {
@@ -107,6 +108,8 @@ public class Fonction {
         // String nom = "Chainse";
         // int prix = 50;
         int id = 32;
+        int limit=3;
+        view.getShuffledFleurs(limit);
 
         //Fleur fleur = new Fleur(id);
         view.deleteFleur(id);
