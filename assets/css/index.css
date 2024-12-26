@@ -575,7 +575,88 @@
    margin-top: -140px;
 }
 
+.scroll-container {
+   display: flex;
+   align-items: center;
+   position: relative;
+   width: 80%; /* Largeur de la galerie */
+   margin: auto;
+   overflow: hidden; /* Masque les débordements */
+   border-radius: 10px;
+}
 
+.scroll-content {
+   display: flex;
+   gap: 20px;
+   overflow-x: auto; /* Permet le défilement horizontal */
+   scroll-behavior: smooth;
+   width: 100%;
+}
+
+.scroll-content .image-item {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+}
+
+.scroll-content img {
+   height: 200px;
+   width: auto;
+   border-radius: 10px;
+   cursor: pointer;
+}
+
+.image-details {
+   margin-top: 10px;
+}
+
+.image-details h4 {
+   font-size: 1.2em;
+   margin: 0;
+}
+
+.image-details p {
+   margin: 5px 0;
+   color: #555;
+}
+
+.scroll-btn {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   background-color: rgba(0, 0, 0, 0.5);
+   color: white;
+   border: none;
+   padding: 10px 15px;
+   cursor: pointer;
+   z-index: 10;
+   border-radius: 50%;
+   font-size: 20px;
+}
+
+.scroll-btn.left {
+   left: 10px;
+}
+
+.scroll-btn.right {
+   right: 10px;
+}
+
+.scroll-btn:hover {
+   background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Animation de défilement automatique */
+@keyframes scroll-left {
+   0% {
+       transform: translateX(0);
+   }
+   100% {
+       transform: translateX(-100%);
+   }
+}
 
 
 

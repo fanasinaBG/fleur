@@ -1,0 +1,372 @@
+.sign-up {
+  	align-self: stretch;
+  	position: relative;
+  	line-height: 44px;
+}
+.please-fill-your {
+  	align-self: stretch;
+  	position: relative;
+  	font-size: 16px;
+  	line-height: 24px;
+  	font-weight: 500;
+  	color: #667085;
+}
+.text {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 10px;
+}
+.bg {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	border-radius: 10px;
+  	background-color: #f2f4f7;
+  	width: 458px;
+  	height: 64px;
+}
+.bg input {
+	border: none;
+	outline: none;
+	background: transparent;
+	width: 80%;
+	font-size: 14px;
+	color: #606266;
+	padding: 25px 65px;
+  }
+ 
+
+	  .bg input::placeholder {
+		position: relative;
+		line-height: 28px;
+		font-weight: 760;
+		opacity: 0.6;
+	  }
+.iconlyboldprofile {
+  	position: absolute;
+  	height: 37.5%;
+  	width: 5.41%;
+  	top: 31.25%;
+  	right: 90.75%;
+  	bottom: 31.25%;
+  	left: 3.84%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+  	object-fit: cover;
+}
+.text1 {
+  	position: absolute;
+  	top: 20px;
+  	left: 61px;
+  	width: 50.7px;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+}
+.name {
+  	align-self: stretch;
+  	position: relative;
+  	height: 64px;
+}
+.div {
+  	position: relative;
+  	line-height: 24px;
+  	font-weight: 500;
+}
+.text2 {
+  	position: absolute;
+  	top: 30px;
+  	left: 64.71px;
+  	width: 114.2px;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+}
+.mobile-number1 {
+  	flex: 1;
+  	position: relative;
+  	line-height: 16px;
+  	font-weight: 500;
+}
+.top-text {
+  	position: absolute;
+  	top: 0px;
+  	left: 23.25px;
+  	width: 93px;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	font-size: 12px;
+  	color: #3c4071;
+}
+.border-icon {
+  	position: absolute;
+  	top: 7px;
+  	left: 0px;
+  	border-radius: 10px;
+  	width: 458px;
+  	height: 73px;
+}
+.mobile-light-solid {
+  	position: absolute;
+  	top: 34px;
+  	left: 24.26px;
+  	width: 19.2px;
+  	height: 19px;
+  	overflow: hidden;
+}
+
+.text3 {
+  	position: absolute;
+  	top: 20px;
+  	left: 61px;
+  	width: 55.8px;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+}
+.envelope-light-solid {
+  	position: absolute;
+  	top: 22px;
+  	left: 19.64px;
+  	width: 20.7px;
+  	height: 20px;
+  	overflow: hidden;
+}
+.form {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: flex-start;
+  	gap: 26px;
+  	font-size: 16px;
+  	color: #98a2b3;
+}
+.st {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 30px;
+}
+.text4 {
+  	position: relative;
+  	line-height: 28px;
+  	font-weight: 500;
+}
+.chevron-right-icon {
+  	width: 24px;
+  	position: relative;
+  	height: 24px;
+}
+.button-base {
+  	box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  	border-radius: 8px;
+  	background-color: #1570ef;
+  	overflow: hidden;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 16px 28px;
+  	gap: 12px;
+}
+button {
+	box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+	font-size: 18px;
+  	border-radius: 8px;
+  	background-color: #1570ef;
+  	overflow: hidden;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+	 color: white;
+	border: none;
+  	padding: 20px 25px;
+	cursor: pointer;
+	line-height: 28px;
+  	font-weight: 700;
+  	gap: 12px;
+	transition: background-color 0.3s ease;
+}
+button:hover {
+	background-color: #45a049; /* Couleur du bouton au survol */
+}
+.text6 {
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: flex-start;
+}
+.login-to-your {
+  	position: relative;
+  	line-height: 24px;
+  	font-weight: 600;
+}
+.login-btn {
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: flex-end;
+  	color: #2e90fa;
+}
+.text5 {
+  	align-self: stretch;
+  	border-top: 1px solid #d0d5dd;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: space-between;
+  	padding: 34px 0px 0px;
+  	font-size: 16px;
+  	color: #475467;
+}
+.nd {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-end;
+  	justify-content: flex-start;
+  	gap: 38px;
+  	font-size: 18px;
+  	color: #fff;
+}
+.wrapper {
+  	position: absolute;
+  	top: 80px;
+  	left: 786px;
+  	width: 458px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-end;
+  	justify-content: flex-start;
+  	gap: 45px;
+}
+.unsplashe2i7hftb-ri-icon {
+  	position: absolute;
+  	top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   min-width: 100%;
+   min-height: 100%;
+  	object-fit: cover;
+      image-rendering: auto;
+}
+.align-justify-icon {
+  	width: 50px;
+  	position: relative;
+  	height: 50px;
+}
+.menu1 {
+  	position: relative;
+  	line-height: 38px;
+  	font-weight: 500;
+}
+.menu-wrapper {
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+}
+.menu {
+  	position: absolute;
+  	top: 72px;
+  	left: 94px;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: flex-start;
+  	gap: 6px;
+}
+.vector-icon {
+  	width: 42.1px;
+  	position: relative;
+  	height: 41px;
+}
+.elbod2i {
+  	position: relative;
+  	letter-spacing: 0.01em;
+  	font-weight: 600;
+}
+.name2 {
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+}
+.logo {
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: flex-start;
+  	gap: 17px;
+}
+.subtract-icon {
+  	width: 7.9px;
+  	position: relative;
+  	height: 14.7px;
+}
+.subtract-icon1 {
+  	width: 13.6px;
+  	position: relative;
+  	height: 13.6px;
+}
+.subtract-icon2 {
+  	width: 11.3px;
+  	position: relative;
+  	height: 10.2px;
+}
+.social-login {
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	gap: 12px;
+}
+.logo-social-login {
+  	position: absolute;
+  	top: 472px;
+  	left: 226px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: flex-start;
+  	gap: 364px;
+  	font-size: 38px;
+  	font-family: Inter;
+}
+.left {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 655px;
+  	height: 620px;
+  	font-size: 24px;
+  	color: #fff;
+  	font-family: Poppins;
+      overflow: hidden;
+      border-radius: 10px;
+}
+.login {
+  	width: 100%;
+  	position: relative;
+  	background-color: #fff;
+  	height: 620px;
+  	overflow: hidden;
+  	text-align: left;
+  	font-size: 32px;
+  	color: #101828;
+  	font-family: Inter;
+}
+

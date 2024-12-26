@@ -41,7 +41,9 @@
                         <div class="help">Home</div>
                         <div class="shop">Shop</div>
                         <div class="about">About</div>
-                        <div class="contact">Contact</div>
+                        <div class="contact">
+                            <a href="login.jsp" style="text-decoration: none; color: inherit;">Se connecter</a>
+                          </div>
                     </div>
                     <div class="mdiaccount-alert-outline-parent" id="groupContainer1">
                         <img class="mdiaccount-alert-outline-icon" alt="" src="mdi:account-alert-outline.svg">
@@ -129,7 +131,7 @@
                 <img src="<%=request.getContextPath() + categoryFleur.getImages() %>"alt="Image 1">
                 <div class="image-details">
                     <h4><%=categoryFleur.getNomFleur()%></h4>
-                    <p><%=categoryFleur.getPrix() %></p>
+                    <p><%=categoryFleur.getPrix() %> €</p>
                     <p><%=categoryFleur.getNomCategory() %></p>
                 </div>
             </div>
@@ -137,5 +139,6 @@
                 }
              %>
     </div>
+     <script src="assets/js/script.js"></script> 
     </body>
 </html>
