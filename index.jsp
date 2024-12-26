@@ -79,7 +79,7 @@
     %>
         <div class="image2">
             <div class="image-container1">
-                <img src="<%=request.getContextPath() + fleur.getImages() %>" alt="<%= fleur.getNomFleur() %>" class="fleur-image">
+                <img src="<%=request.getContextPath() + fleur.getImages() %>" alt="<%= fleur.getNomFleur() %>" class="fleurImage">
             </div>
         </div>
         <% 
