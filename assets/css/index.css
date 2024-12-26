@@ -472,6 +472,9 @@
    height:250px ;
    padding-bottom: 0;
 }
+.image-container1:hover .fleurImage {
+   transform: translate(-50%, -50%) scale(1.1); /* Zoom léger (1.1x) */
+}
 .image-container1 {
    align-self: stretch;
    position: relative;
@@ -480,6 +483,22 @@
    height: 200px;
    margin-bottom: 0;
    width: 100%;
+   overflow: hidden;
+}
+.fleurImage {
+   position:absolute;
+   border-radius: 10px;
+   height: 200px;
+   margin-bottom: 0;
+   width: 100%;
+   min-width: 100%;
+   min-height: 100%;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   image-rendering: auto;
+   object-fit: cover;
+   transition: transform 0.3s ease; /* Animation fluide sur le zoom */
 }
 .image2 {
    flex: 1;
@@ -487,15 +506,10 @@
    flex-direction: column;
    align-items: flex-start;
    justify-content: flex-start;
-   width: 50px;
-}
-.fleur-image {
-   width: 40px;  /* Largeur fixe */
-   height: 20px; /* Hauteur fixe */
-   object-fit: cover; /* Assure que l'image couvre toute la zone sans déformation */
+   width: 500px;
 }
 .block-02 {
-   width: 100px;
+   width: 1000px;
    display: flex;
    flex-direction: row;
    align-items: flex-start;
