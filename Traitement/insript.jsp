@@ -31,6 +31,10 @@
             // Appel de la méthode createClient
             RequeteClient kill = new RequeteClient();
             kill.createClient(client);
+            session.setAttribute("nom", nom);
+            session.setAttribute("email", email);
+            session.setAttribute("mdp", mdp);
+            response.sendRedirect("../connecter.jsp");
     
             // Afficher un message de confirmation
             out.println("<p>Client ajouté avec succès !</p>");
