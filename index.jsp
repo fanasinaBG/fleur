@@ -123,12 +123,17 @@
       <div class="allCategory">
       <p>Tout categorie</p>
     </div>
+    <div class="NosProduits">
+        <H1>Nos Produits</H1>
+    </div>
     <div class="scroll-content">
         <% 
             for (FleursCategories categoryFleur : FleurCategorie) {
         %>
             <div class="image-item">
-                <img src="<%=request.getContextPath() + categoryFleur.getImages() %>"alt="Image 1">
+                <div class="img-container">
+                    <img src="<%=request.getContextPath() + categoryFleur.getImages() %>"alt="Image 1" class="fleurImage2">
+                    </div>
                 <div class="image-details">
                     <h4><%=categoryFleur.getNomFleur()%></h4>
                     <p><%=categoryFleur.getPrix() %> €</p>
