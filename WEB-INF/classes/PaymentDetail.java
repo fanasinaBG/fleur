@@ -7,6 +7,12 @@ public class PaymentDetail {
         this.numero = numero;
         this.idPayment = idPayment;
     }
+/* 
+    public PaymentDetail(int id, int numero) {
+        this.id = id;
+        this.numero = numero;
+    }
+  */ 
     public PaymentDetail() {
     }
     public PaymentDetail(int id, int numero, int idPayment) {

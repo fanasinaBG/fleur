@@ -21,7 +21,7 @@ public class RequeteClient {
              catch(SQLException e){
                 System.out.println("Erreur" + e.getMessage());
              }
-    }
+    } 
 
     public List<String> readClient(){
         List<String> listClient= new ArrayList<>();
