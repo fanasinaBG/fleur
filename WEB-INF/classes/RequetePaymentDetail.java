@@ -56,7 +56,7 @@ public class RequetePaymentDetail {
                 System.out.println("Erreur lors de la mise à jour" + e.getMessage());
             }
     } 
-/* */
+    
     public void updatePaymentDetails(PaymentDetail detail){
         String sql = "UPDATE paymentDetail SET numero = ? WHERE idPayment=?";
         try (Connection conn = DatabaseConnection.getConnection();

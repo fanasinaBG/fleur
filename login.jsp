@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,10 +38,12 @@
       			<div class="nd">
         				<div class="text5">
           					<div class="text6">
-            						<div class="div">Already have an account</div>
+            						<div class="div">Don't have an account?</div>
           					</div>
           					<div class="login-btn">
-            						<div class="login-to-your">Login to your account</div>
+								<div class="login-to-your">
+									<a href="inscription.jsp" style="text-decoration: none; color: inherit;">Create an account</a>
+								</div>
           					</div>
         				</div>
       			</div>

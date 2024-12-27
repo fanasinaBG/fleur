@@ -46,7 +46,7 @@
                           </div>
                     </div>
                     <div class="mdiaccount-alert-outline-parent" id="groupContainer1">
-                        <img class="mdiaccount-alert-outline-icon" alt="" src="mdi:account-alert-outline.svg">
+                      <img class="mdiaccount-alert-outline-icon" alt="" src="mdi:account-alert-outline.svg">
                         <img class="akar-iconssearch" alt="" src="akar-icons:search.svg">
                         <img class="akar-iconsheart" alt="" src="akar-icons:heart.svg">
                         <img class="ant-designshopping-cart-outli-icon" alt="" src="ant-design:shopping-cart-outlined.svg">

@@ -23,6 +23,21 @@ public class RequeteClient {
              }
     } 
 
+//     public void createClient(String nom, String mail, String mdp){
+//       String sql = "INSERT INTO clients (nomClient, email, mdp) VALUES (?, ?, ?)";
+//       try (Connection conn = DatabaseConnection.getConnection();
+//            PreparedStatement stmt = conn.prepareStatement(sql)) {
+//               stmt.setString(1,client.getNomClient());
+//               stmt.setString(2,client.getEmail());
+//               stmt.setString(3,client.getMdp());
+//               stmt.executeUpdate();    
+//            }
+//            catch(SQLException e){
+//               System.out.println("Erreur" + e.getMessage());
+//            }
+//   } 
+
+
     public boolean validateClient(String nom, String email) {
       String sql = "SELECT * FROM clients WHERE nomClient = ? AND email = ? ";
       try (Connection conn = DatabaseConnection.getConnection();
