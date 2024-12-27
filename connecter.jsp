@@ -43,7 +43,7 @@
                         <div class="shop">Shop</div>
                         <div class="about">About</div>
                         <div class="contact">
-                            <a href="login.jsp" style="text-decoration: none; color: inherit;">Se deconnecter</a>
+                            <a href="Traitement/deconexion.jsp" style="text-decoration: none; color: inherit;">Se deconnecter</a>
                           </div>
                     </div>
                      <%
