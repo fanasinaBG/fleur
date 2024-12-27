@@ -15,6 +15,7 @@
     Fonction fonction = new Fonction();
     List<Fleur> fleurs = fonction.getShuffledFleurs(6);
     List<FleursCategories> FleurCategorie = RequeteFleurCategorie.fleurCategory();
+    session.setAttribute("FleurCategorie", FleurCategorie); // Stocker dans la session
 %>
 
 
@@ -132,6 +133,7 @@
         %>
             <div class="image-item">
                 <div class="img-container">
+                  <a href="details.jsp?id=<%=categoryFleur.getFleur_id() %>">
                     <img src="<%=request.getContextPath() + categoryFleur.getImages() %>"alt="Image 1" class="fleurImage2">
                     </div>
                 <div class="image-details">

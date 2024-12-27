@@ -1,6 +1,7 @@
 package fleur;
 
 public class FleursCategories {
+    private int fleur_id;
     private String nomFleur;
     private int prix;
     private String descriptions;
@@ -10,6 +11,25 @@ public class FleursCategories {
 
     
 
+    public FleursCategories(int fleur_id, String nomFleur, int prix, String descriptions, String images,
+            String nomCategory) {
+        this.fleur_id = fleur_id;
+        this.nomFleur = nomFleur;
+        this.prix = prix;
+        this.descriptions = descriptions;
+        this.images = images;
+        this.nomCategory = nomCategory;
+    }
+    public FleursCategories(int fleur_id, String nomFleur, int prix, String descriptions, String images, int categoryId,
+            String nomCategory) {
+        this.fleur_id = fleur_id;
+        this.nomFleur = nomFleur;
+        this.prix = prix;
+        this.descriptions = descriptions;
+        this.images = images;
+        this.categoryId = categoryId;
+        this.nomCategory = nomCategory;
+    }
     public FleursCategories() {
     }
     public FleursCategories(String nomFleur, int prix, String descriptions, String images, int categoryId,
@@ -56,6 +76,12 @@ public class FleursCategories {
     }
     public void setNomCategory(String nomCategory) {
         this.nomCategory = nomCategory;
+    }
+    public int getFleur_id() {
+        return fleur_id;
+    }
+    public void setFleur_id(int fleur_id) {
+        this.fleur_id = fleur_id;
     }
 
 }

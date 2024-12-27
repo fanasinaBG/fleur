@@ -63,8 +63,11 @@ CREATE TABLE Livraison (
     Foreign Key (idFleur) REFERENCES fleur(id),
     Foreign Key (idConfirmation) REFERENCES confirmation(id)
 );
+SELECT nomFleur,prix,descriptions,images,nomCategory FROM vue_fleurs_categories WHERE fleur_id =1;
+select * from vue_fleurs_categories;
 CREATE VIEW vue_fleurs_categories AS
 SELECT 
+    f.id AS fleur_id,
     f.nomFleur,
     f.prix,
     f.descriptions,
