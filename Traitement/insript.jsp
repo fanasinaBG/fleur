@@ -38,8 +38,6 @@
             out.println("<p>Erreur : Veuillez remplir tous les champs.</p>");
         }
     %>
-
-
-       
+     
 </body>
 </html>
