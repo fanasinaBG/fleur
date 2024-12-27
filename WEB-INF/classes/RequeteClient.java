@@ -23,6 +23,25 @@ public class RequeteClient {
              }
     } 
 
+    public boolean validateClient(String nom, String email) {
+      String sql = "SELECT * FROM clients WHERE nomClient = ? AND email = ? ";
+      try (Connection conn = DatabaseConnection.getConnection();
+           PreparedStatement stmt = conn.prepareStatement(sql)) {
+  
+          stmt.setString(1, nom);
+          stmt.setString(2, email);
+         //  stmt.setString(3, mdp);
+  
+          ResultSet resultSet = stmt.executeQuery();
+  
+          return resultSet.next(); // Retourne true si un enregistrement correspondant est trouvé
+      } catch (SQLException e) {
+          System.out.println("Erreur: " + e.getMessage());
+          return false;
+      }
+  }
+  
+
     public List<String> readClient(){
         List<String> listClient= new ArrayList<>();
         String sql = "SELECT * FROM clients ";

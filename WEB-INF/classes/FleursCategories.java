@@ -2,7 +2,7 @@ package fleur;
 
 public class FleursCategories {
     private String nomFleur;
-    private double prix;
+    private int prix;
     private String descriptions;
     private String images;
     private int categoryId;
@@ -12,7 +12,7 @@ public class FleursCategories {
 
     public FleursCategories() {
     }
-    public FleursCategories(String nomFleur, double prix, String descriptions, String images, int categoryId,
+    public FleursCategories(String nomFleur, int prix, String descriptions, String images, int categoryId,
             String nomCategory) {
         this.nomFleur = nomFleur;
         this.prix = prix;
@@ -27,10 +27,10 @@ public class FleursCategories {
     public void setNomFleur(String nomFleur) {
         this.nomFleur = nomFleur;
     }
-    public double getPrix() {
+    public int getPrix() {
         return prix;
     }
-    public void setPrix(double prix) {
+    public void setPrix(int prix) {
         this.prix = prix;
     }
     public String getDescriptions() {
