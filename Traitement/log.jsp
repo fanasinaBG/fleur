@@ -4,6 +4,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="client.RequeteClient" %>
 <%@ page import="connection.DatabaseConnection" %>
+<%@ page import="jakarta.servlet.http.HttpSession" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +24,10 @@
         boolean isValid = clients.validateClient(nom, email);
 
         if (isValid) {
+            //HttpSession session = request.getSession(true);
+            session.setAttribute("nom", nom);
+            session.setAttribute("email", email);
+            response.sendRedirect("../connecter.jsp");
     %>
     <p>Connexion réussie!</p>
     <%

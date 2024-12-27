@@ -79,6 +79,7 @@ JOIN
 select * from vue_fleurs_categories;
 
 
+select * from clients; 
 
 insert into evenement(nomEvenement)VALUES('quotidient');
 insert into evenement(nomEvenement)VALUES('evenement');
