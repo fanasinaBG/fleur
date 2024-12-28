@@ -116,7 +116,9 @@
             // Boucle pour afficher chaque nom de category dans le menu déroulant
             for (String categorie : categories) {
         %>
-            <div class="dropdown-item"><%= categorie %></div>
+            <div class="dropdown-item">
+            <%= categorie %>
+            </div>
         <% 
             }
         %>
