@@ -46,10 +46,14 @@ public class RequeteCategorie {
 
                 while (resultSet.next()) {
                     String nomCategorie = resultSet.getString("nomCategory");
+                    int id = resultSet.getInt("id");
 
-                    listCategorie.add(nomCategorie);
+                    listCategorie.add(id,nomCategorie);
+
                     System.out.println("Nom Categorie: " + nomCategorie);
+                    System.out.println("id Categorie: " + id);
                 }
+
              }
              catch(SQLException e){
                 System.out.println("Erreur" + e.getMessage());
@@ -75,11 +79,12 @@ public class RequeteCategorie {
         // String nomCategorie = "test";
     
         // String nomCategorie = "vaovao";
-        int id = 7;
+        //int id = 7;
         
         // Categorie category = new Categorie(id, nomCategorie);
         // categorie.createCategorie(category);
         // categorie.updateCategorie(category);
+        System.out.println("test" );
          categorie.readCategorie();
         //categorie.deleteCategorie(id);
     }
