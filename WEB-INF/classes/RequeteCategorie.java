@@ -48,7 +48,7 @@ public class RequeteCategorie {
                     String nomCategorie = resultSet.getString("nomCategory");
                     int id = resultSet.getInt("id");
 
-                    listCategorie.add(id,nomCategorie);
+                    listCategorie.add(nomCategorie);
 
                     System.out.println("Nom Categorie: " + nomCategorie);
                     System.out.println("id Categorie: " + id);
