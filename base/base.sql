@@ -65,6 +65,7 @@ CREATE TABLE Livraison (
 );
 SELECT nomFleur,prix,descriptions,images,nomCategory FROM vue_fleurs_categories WHERE fleur_id =1;
 select * from vue_fleurs_categories;
+drop view vue_fleurs_categories;
 CREATE VIEW vue_fleurs_categories AS
 SELECT 
     f.id AS fleur_id,

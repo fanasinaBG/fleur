@@ -68,9 +68,51 @@ public class RequeteFleurCategorie {
     //          return listEvent;
     // }
 
+    public static List<FleursCategories>  getFleurCategory( int id) {
+        List<FleursCategories> FleurCategorie= new ArrayList<>();
+        String query = "SELECT fleur_id,nomFleur,prix,descriptions,images,nomCategory , category_id FROM vue_fleurs_categories WHERE category_id=?";
+
+      
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+             preparedStatement.setInt(1, id);
+
+             try(ResultSet resultSet = preparedStatement.executeQuery()) {
+
+            // Parcourir les résultats
+            while (resultSet.next()) {
+                int fleur_id = resultSet.getInt("fleur_id");
+                String nomFleur = resultSet.getString("nomFleur");
+                int prix = resultSet.getInt("prix");
+                String descriptions = resultSet.getString("descriptions");
+                String images = resultSet.getString("images");
+                int categoryId = resultSet.getInt("category_id");
+                String nomCategory = resultSet.getString("nomCategory");
+                FleursCategories fleur = new FleursCategories(fleur_id,nomFleur, prix ,descriptions, images,nomCategory );
+                FleurCategorie.add(fleur);
+
+                // Afficher les données (ou les traiter selon vos besoins)
+                System.out.println("id fleur: " + fleur_id);
+                System.out.println("Nom Fleur: " + nomFleur);
+                System.out.println("Prix: " + prix);
+                System.out.println("Descriptions: " + descriptions);
+                System.out.println("Images: " + images);
+                System.out.println("Category ID: " + categoryId);
+                System.out.println("Nom Category: " + nomCategory);
+                System.out.println("----------------------------");
+            }
+        } 
+    }catch (Exception e) {
+        e.printStackTrace();
+    }
+    return FleurCategorie;
+}
+
     public static void main(String[]args){
         RequeteFleurCategorie category=new RequeteFleurCategorie();
-        category.fleurCategory();
+        int id=3;
+        category.getFleurCategory(id);
+        // category.fleurCategory();
     } 
 }
 
