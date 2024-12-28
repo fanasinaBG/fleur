@@ -5,6 +5,7 @@ import fleur.Categorie;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale.Category;
 
@@ -37,8 +38,8 @@ public class RequeteCategorie {
              }
     }
 
-    public List<String> readCategorie(){
-        List<String> listCategorie= new ArrayList<>();
+    public HashMap<String,String> readCategorie(){
+        HashMap<String, String> listCategorie= new HashMap<>();
         String sql = "SELECT * FROM category ";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -48,7 +49,7 @@ public class RequeteCategorie {
                     String nomCategorie = resultSet.getString("nomCategory");
                     int id = resultSet.getInt("id");
 
-                    listCategorie.add(nomCategorie);
+                    listCategorie.put(String.valueOf(id), nomCategorie);
 
                     System.out.println("Nom Categorie: " + nomCategorie);
                     System.out.println("id Categorie: " + id);
