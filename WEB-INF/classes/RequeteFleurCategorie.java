@@ -42,31 +42,31 @@ public class RequeteFleurCategorie {
         }
         return FleurCategorie;
     }
-    public List<String> getFleur( int id){
-        List<String> listEvent= new ArrayList<>();
-        String sql = "SELECT nomFleur,prix,descriptions,images,nomCategory FROM vue_fleurs_categories WHERE category_id =? ";
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-                ResultSet resultSet = stmt.executeQuery();
+    // public List<String> getFleur( int id){
+    //     List<String> listEvent= new ArrayList<>();
+    //     String sql = "SELECT nomFleur,prix,descriptions,images,nomCategory FROM vue_fleurs_categories WHERE category_id =? ";
+    //     try (Connection conn = DatabaseConnection.getConnection();
+    //          PreparedStatement stmt = conn.prepareStatement(sql)) {
+    //             ResultSet resultSet = stmt.executeQuery();
 
-                while (resultSet.next()) {
-                    int fleur_id = resultSet.getInt("fleur_id");
-                    String nomFleur = resultSet.getString("nomFleur");
-                    int prix = resultSet.getInt("prix");
-                    String descriptions = resultSet.getString("descriptions");
-                    String images = resultSet.getString("images");
-                    int categoryId = resultSet.getInt("category_id");
-                    String nomCategory = resultSet.getString("nomCategory");
+    //             while (resultSet.next()) {
+    //                 int fleur_id = resultSet.getInt("fleur_id");
+    //                 String nomFleur = resultSet.getString("nomFleur");
+    //                 int prix = resultSet.getInt("prix");
+    //                 String descriptions = resultSet.getString("descriptions");
+    //                 String images = resultSet.getString("images");
+    //                 int categoryId = resultSet.getInt("category_id");
+    //                 String nomCategory = resultSet.getString("nomCategory");
 
-                    listEvent.add(fleur_id,nomFleur, prix ,descriptions, images,nomCategory);
-                    System.out.println("Nom de l'evenement: " + nomEvent);
-                }
-             }
-             catch(SQLException e){
-                System.out.println("Erreur de lecture" + e.getMessage());
-             }
-             return listEvent;
-    }
+    //                 listEvent.add(fleur_id,nomFleur, prix ,descriptions, images,nomCategory);
+    //                 System.out.println("Nom de l'evenement: " + nomEvent);
+    //             }
+    //          }
+    //          catch(SQLException e){
+    //             System.out.println("Erreur de lecture" + e.getMessage());
+    //          }
+    //          return listEvent;
+    // }
 
     public static void main(String[]args){
         RequeteFleurCategorie category=new RequeteFleurCategorie();
