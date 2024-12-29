@@ -1,4 +1,24 @@
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.SQLException" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="fleur.Fonction" %>
+<%@ page import="connection.DatabaseConnection" %>
+<%@ page import="categorie.RequeteCategorie" %>
+<%@ page import="fleur.Fleur" %>
+<%@ page import="fleur.RequeteFleurCategorie" %>
+<%@ page import="fleur.FleursCategories" %>
+<%
+    RequeteCategorie Category = new RequeteCategorie();
+    HashMap<String,String> categories = Category.readCategorie();  // Appel de la méthode pour récupérer les catégories
+    Fonction fonction = new Fonction();
+// Récupérer l'ID de la fleur sélectionnée
+        String id = request.getParameter("id"); 
+        int idC=Integer.parseInt(id);
+        List<FleursCategories> FleurCategorie = RequeteFleurCategorie.getFleurCategory(idC);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,13 +74,21 @@
         <input type="text" name="query" placeholder="Rechercher...">
         <button type="submit">Chercher</button>
     </form>
-    <div class="dropdown">
-        <div class="dropdown-item">Suggestion 1</div>
-        <div class="dropdown-item">Suggestion 2</div>
-        <div class="dropdown-item">Suggestion 3</div>
-        <div class="dropdown-item">Suggestion 4</div>
-        <div class="dropdown-item">Suggestion 5</div>
-        <div class="dropdown-item">Suggestion 6</div>
+   <div class="dropdown">
+     <% 
+        
+            for (Map.Entry<String, String> categorie : categories.entrySet()) {
+                String key = categorie.getKey(); // Clé
+                String value = categorie.getValue(); // Valeur
+     %>
+                <div class="dropdown-item">
+                    <a href="category.jsp?id=<%=key %>"><%= value %> </a> 
+                </div>
+        <%      
+
+            }
+        %>
+            
       </div>
       <div class="allCategory">
       <p>Tout categorie</p>
@@ -68,16 +96,18 @@
   	
   	<div class="content">
     		<div class="block-01">
+            <% 
+               for (FleursCategories categoryFleur : FleurCategorie) {
+            %>
       			<div class="image">
                     <div class="image-container1">
-                        <img src="assets/image/48550-2-chair-download-free-hq-image 1.png" alt="Image 1"class="fleurImage">
+                        <img src="<%=request.getContextPath() + categoryFleur.getImages() %>"alt="Image 1" class="fleurImage">
                     </div>  
       			</div>
-      			<div class="image1">
-                    <div class="image-container1">
-                        <img src="assets/image/48550-2-chair-download-free-hq-image 1.png" alt="Image 1"class="fleurImage">
-                    </div>  				
-      			</div>
+                <%
+                    }
+                %>
+      			
     		</div>
   	</div>  	
 </body>

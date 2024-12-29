@@ -107,11 +107,45 @@ public class RequeteFleurCategorie {
     }
     return FleurCategorie;
 }
+public static List<FleursCategories> searchFleurCategory(String searchQuery) {
+    List<FleursCategories> FleurCategorie = new ArrayList<>();
+    String query = "SELECT nomFleur, nomCategory FROM vue_fleurs_categories WHERE nomFleur LIKE ? LIMIT 5";
+
+    System.out.println("Méthode searchFleurCategory appelée avec : " + searchQuery);
+
+    try (Connection connection = DatabaseConnection.getConnection();
+         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+        
+        preparedStatement.setString(1, searchQuery + "%"); // Recherche dynamique
+        try (ResultSet resultSet = preparedStatement.executeQuery()) {
+            while (resultSet.next()) {
+                String nomFleur = resultSet.getString("nomFleur");
+                String nomCategory = resultSet.getString("nomCategory");
+
+                // Ajout des résultats à la liste (ajustez selon votre classe FleursCategories)
+                FleursCategories fleur = new FleursCategories();
+                fleur.setNomFleur(nomFleur);
+                fleur.setNomCategory(nomCategory);
+                FleurCategorie.add(fleur);
+            }
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return FleurCategorie;
+}
+
 
     public static void main(String[]args){
         RequeteFleurCategorie category=new RequeteFleurCategorie();
         int id=3;
-        category.getFleurCategory(id);
+        String parametre= "Coquelicots";
+        List<FleursCategories> results = RequeteFleurCategorie.searchFleurCategory("Coquelicots");
+        for (FleursCategories fleur : results) {
+            System.out.println(fleur.getNomFleur() + " - " + fleur.getNomCategory());
+        }
+        System.out.println("Fin du test de searchFleurCategory.");
+        //category.getFleurCategory(id);
         // category.fleurCategory();
     } 
 }

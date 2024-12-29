@@ -41,3 +41,6 @@ btnRight.addEventListener('click', () => {
 
 // Initialisation de l'état des boutons
 checkButtons();
+
+
+

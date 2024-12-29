@@ -84,6 +84,7 @@ select * from vue_fleurs_categories;
 
 
 select * from clients; 
+SELECT nomFleur, nomCategory FROM vue_fleurs_categories WHERE nomFleur LIKE 'Coquelicots%';
 
 insert into evenement(nomEvenement)VALUES('quotidient');
 insert into evenement(nomEvenement)VALUES('evenement');

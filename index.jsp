@@ -108,22 +108,15 @@
 
         </div>
     </div>
-    <form class="search-bar" action="/search" method="GET">
+    <form class="search-bar" action="search.jsp" method="GET">
         <img src="assets/image/Icon.svg" alt="Recherche" class="search-icon">
-        <input type="text" name="query" placeholder="Rechercher...">
+        <input type="text" name="query" placeholder="Rechercher..." onkeyup="performSearch(this.value)" autocomplete="off">
         <button type="submit">Chercher</button>
     </form>
+    <div id="suggestions" class="suggestions"></div> 
     <div class="dropdown">
      <% 
-            // Boucle pour afficher chaque nom de category dans le menu déroulant
-<<<<<<< HEAD
-            for (String categorie : categories) {
-        %>
-            <div class="dropdown-item">
-            <%= categorie %>
-            </div>
-        <% 
-=======
+        
             for (Map.Entry<String, String> categorie : categories.entrySet()) {
                 String key = categorie.getKey(); // Clé
                 String value = categorie.getValue(); // Valeur
@@ -132,7 +125,7 @@
                     <a href="category.jsp?id=<%=key %>"><%= value %> </a> 
                 </div>
         <%      
->>>>>>> 076f155a53d2dc067c547d57d3953a1a43da22bb
+
             }
         %>
             
@@ -162,6 +155,7 @@
                 }
              %>
     </div>
+       <script src="assets/js/search.js"></script>
      <script src="assets/js/script.js"></script> 
     </body>
 </html>

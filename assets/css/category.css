@@ -1,0 +1,163 @@
+.bedroom {
+    position: relative;
+    line-height: 62px;
+}
+.explore {
+    position: relative;
+}
+.btn-explore {
+    width: 150px;
+    border-radius: 6px;
+    background-color: #e0eff6;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 20px;
+    box-sizing: border-box;
+    font-size: 18px;
+    color: #07484a;
+    font-family: 'Open Sans';
+}
+.image {
+    align-self: stretch;
+    flex: 1;
+    box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    background-color: #adadad;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 36px 0px;
+    gap: 24px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.image1 {
+    align-self: stretch;
+    flex: 1;
+    border-radius: 10px;
+    background-color: #d9d9d9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.block-01 {
+    align-self: stretch;
+    height: 277px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+.content {
+    flex: 1;
+    width: 700px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 26px;
+    text-align: left;
+    font-size: 48px;
+    color: #fdfbf8;
+    font-family: 'Playfair Display';
+    margin-left: 30%;
+}
+
+.dropdown {
+    position: absolute;
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    background-color: #fff;
+    height: 450px;
+    width: 220px;
+    max-height: 550px; /* Limite la hauteur de la liste */
+    overflow-y: auto; /* Ajoute une barre de défilement si nécessaire */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+    margin-left: 42px;
+  }
+ 
+  .dropdown-item {
+    padding: 15px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+ 
+  .dropdown-item:hover {
+    background-color: #f4f4f4;
+  }
+
+  .search-bar {
+    position: absolute;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 219px;
+    height: 30px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    margin-top: 42px;
+    margin-left: 42px;
+  }
+  .search-bar input[type="text"] {
+    flex: 1;
+    border: none;
+    padding: 10px 5px;
+    font-size: 13px;
+    outline: none;
+  }
+  .search-bar button {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    padding: 10px 5px;
+    cursor: pointer;
+    font-size: 13px;
+    margin-left: -55%;
+  }
+  .search-bar button:hover {
+    background-color: #0056b3;
+  }
+  .search-icon {
+    width: 15px;
+    height: 15px;
+    margin:  5px;
+    padding: 4px 5px;
+  }
+  .image-container1 {
+    align-self: stretch;
+    position: relative;
+    border-radius: 10px;
+    background-color: #d9d9d9;
+    height: 200px;
+    margin-bottom: 0;
+    width: 100%;
+    overflow: hidden;
+ }
+ .fleurImage {
+    position:absolute;
+    border-radius: 10px;
+    height: 200px;
+    margin-bottom: 0;
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    image-rendering: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* Animation fluide sur le zoom */
+ }

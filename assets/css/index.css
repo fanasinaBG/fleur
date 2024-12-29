@@ -195,7 +195,7 @@
  height: 20px;
 }
 .search-bar {
- position: absolute;
+position: relative;
  display: flex;
  align-items: flex-start;
  justify-content: flex-start;
@@ -682,6 +682,34 @@
  image-rendering: auto;
  object-fit: cover;
 }
+
+.suggestions {
+   position: absolute;  /* Positionnement absolu pour s'afficher sous l'input */
+   top: 100%;  /* Positionne les suggestions juste sous la barre de recherche */
+   left: 0;
+   background-color: #fff;
+   border: 1px solid #ccc;
+   width: 100%;
+   max-height: 200px;
+   overflow-y: auto;
+   z-index: 1000; /* Garantit que les suggestions apparaissent au-dessus de la dropdown */
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.suggestion-item {
+   padding: 10px;
+   cursor: pointer;
+}
+
+.suggestion-item:hover {
+   background-color: #e0e0e0; /* Change background color on hover */
+}
+
+.no-results {
+   padding: 10px;
+   color: #777;
+}
+
 
 
 
