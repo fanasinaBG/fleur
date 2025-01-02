@@ -11,10 +11,21 @@ public class Fleur {
     private int idCategory;
     private String descriptions;
     private String images;
+    private int quantite;
 
 
     
     
+    public Fleur(int id, String nomFleur, int prix, int idCategory, String descriptions, String images, int quantite) {
+        this.id = id;
+        this.nomFleur = nomFleur;
+        this.prix = prix;
+        this.idCategory = idCategory;
+        this.descriptions = descriptions;
+        this.images = images;
+        this.quantite = quantite;
+    }
+
     public Fleur(int id) {
         this.id = id;
     }
@@ -83,5 +94,13 @@ public class Fleur {
     }
     public void setImages(String images) {
         this.images = images;
+    }
+
+    public int getQuantite() {
+        return quantite;
+    }
+
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
     }
 }

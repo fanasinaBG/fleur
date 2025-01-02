@@ -20,8 +20,11 @@ CREATE TABLE fleur (
     idCategory INT,
     descriptions VARCHAR(255),
     images VARCHAR(55),
+    quantite INT,
     Foreign Key (idCategory) REFERENCES category(id) 
 );
+
+
 
 CREATE TABLE payment (
     id SERIAL PRIMARY KEY, 
@@ -63,6 +66,12 @@ CREATE TABLE Livraison (
     Foreign Key (idFleur) REFERENCES fleur(id),
     Foreign Key (idConfirmation) REFERENCES confirmation(id)
 );
+
+drop table fleur;
+
+drop table Livraison;
+
+drop view vue_fleurs_categories;
 SELECT nomFleur,prix,descriptions,images,nomCategory FROM vue_fleurs_categories WHERE fleur_id =1;
 select * from vue_fleurs_categories;
 drop view vue_fleurs_categories;
@@ -73,6 +82,7 @@ SELECT
     f.prix,
     f.descriptions,
     f.images,
+    f.quantite,
     c.id AS category_id,
     c.nomCategory
 FROM 
