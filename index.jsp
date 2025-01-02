@@ -117,7 +117,7 @@
     <div class="dropdown">
      <% 
         
-            for (Map.Entry<String, String> categorie : categories.entrySet()) {
+             for (Map.Entry<String, String> categorie : categories.entrySet()) {
                 String key = categorie.getKey(); // Clé
                 String value = categorie.getValue(); // Valeur
      %>
