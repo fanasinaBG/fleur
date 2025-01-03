@@ -80,9 +80,9 @@
     		<div class="heading">
       			<b class="special-package">Votre produit</b>
     		</div>
+            <form action="Traitement/detailes.jsp" method="POST">
     		<div class="block">
       			<div class="main-block">
-
         				<div class="image">
                             <%
                                 if (selectedFleur != null) {
@@ -94,9 +94,12 @@
         				<div class="title-btn">
           					<div class="title">
             						<div class="larkin-wood-full"><%=session.getAttribute("fleurNom") %></div>
-            						<b class="b"> <%=session.getAttribute("fleurPrix") %> €</b>
+            						<b class="b"> <%=session.getAttribute("fleurPrix") %> € pour 4 tige</b>
           					</div>
-
+                            <div class="tige">
+                                <p>vous voulez acheter combien de tige?</p>
+                                <input type="number" name="tige" placeholder="tige">
+                            </div>
           					<div class="desctiption">
             						<div class="description-cast-aluminum-container">
               							<p class="description">
@@ -139,6 +142,7 @@
         				</div>
       			</div>
     		</div>
+        </form>
   	</div>
 
 </body>
