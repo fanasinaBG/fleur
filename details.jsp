@@ -23,6 +23,7 @@
 
     // Enregistrer les informations dans la session
     if (selectedFleur != null) {
+        session.setAttribute("id", id);
         session.setAttribute("fleurImage", selectedFleur.getImages());
         session.setAttribute("fleurNom", selectedFleur.getNomFleur());
         session.setAttribute("fleurPrix", selectedFleur.getPrix());

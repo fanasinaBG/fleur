@@ -8,9 +8,31 @@ public class FleursCategories {
     private String images;
     private int categoryId;
     private String nomCategory;
+    private int quantite;
 
     
 
+    public FleursCategories(int fleur_id, String nomFleur, int prix, String descriptions, String images,
+            String nomCategory, int quantite) {
+        this.fleur_id = fleur_id;
+        this.nomFleur = nomFleur;
+        this.prix = prix;
+        this.descriptions = descriptions;
+        this.images = images;
+        this.nomCategory = nomCategory;
+        this.quantite = quantite;
+    }
+    public FleursCategories(int fleur_id, String nomFleur, int prix, String descriptions, String images, int categoryId,
+            String nomCategory, int quantite) {
+        this.fleur_id = fleur_id;
+        this.nomFleur = nomFleur;
+        this.prix = prix;
+        this.descriptions = descriptions;
+        this.images = images;
+        this.categoryId = categoryId;
+        this.nomCategory = nomCategory;
+        this.quantite = quantite;
+    }
     public FleursCategories(int fleur_id, String nomFleur, int prix, String descriptions, String images,
             String nomCategory) {
         this.fleur_id = fleur_id;
@@ -82,6 +104,12 @@ public class FleursCategories {
     }
     public void setFleur_id(int fleur_id) {
         this.fleur_id = fleur_id;
+    }
+    public int getQuantite() {
+        return quantite;
+    }
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
     }
 
 }

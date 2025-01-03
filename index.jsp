@@ -43,7 +43,9 @@
                     <div class="home-parent">
                         <div class="help">Home</div>
                         <div class="shop">Shop</div>
-                        <div class="about">About</div>
+                        <div class="cards">
+                            <a href="cards.jsp" style="text-decoration: none; color: inherit;">cards</a>
+                        </div>
                         <div class="contact">
                             <a href="login.jsp" style="text-decoration: none; color: inherit;">Se connecter</a>
                           </div>
@@ -149,6 +151,10 @@
                     <h4><%=categoryFleur.getNomFleur()%></h4>
                     <p><%=categoryFleur.getPrix() %> €</p>
                     <p><%=categoryFleur.getNomCategory() %></p>
+                </div>
+                <div class=" cards"> 
+                    <a href="Traitement/add.jsp?id=<%=categoryFleur.getFleur_id() %>">
+                    <p>add</p>
                 </div>
             </div>
             <% 
