@@ -2,6 +2,7 @@
 <%@ page import="java.sql.Connection" %>
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page import="client.RequeteClient" %>
 <%@ page import="connection.DatabaseConnection" %>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
@@ -17,71 +18,51 @@
 </head>
 <body>
      <%
-        String quantites = request.getParameter("tige");
-        Object sessionId=session.getAttribute("id");
-        int id= 0;
-        id=Integer.parseInt(sessionId.toString());
-         List<FleursCategories> fleurs = null;
+    List<FleursCategories> FleurCategorie = RequeteFleurCategorie.fleurCategory();
+    session.setAttribute("FleurCategorie", FleurCategorie);
 
-        if (quantites == null || quantites.trim().isEmpty()) {
-    %>
-            <p>Votre quantité est vide ou invalide.</p>
-    <%
-        } else {
-            try {
-                int quantite = Integer.parseInt(quantites); // Conversion en entier
-                fleurs = RequeteFleurCategorie.getFleurQuantite(id);
-                request.setAttribute("fleurs", fleurs);
-                // Rediriger vers la page cible
-                RequestDispatcher dispatcher = request.getRequestDispatcher("../cards.jsp");
-                dispatcher.forward(request, response);
-    %>
-                <p>Votre quantité est : <%= quantite %></p>
-                <p>Votre id est : <%= sessionId %></p>
-    <% 
-            } catch (NumberFormatException e) {
-    %>
-                <p>Erreur : La valeur fournie n'est pas un nombre valide.</p>
-    <%
+    String quantites = request.getParameter("tige");
+    Object sessionId = session.getAttribute("id");
+    int id = 0;
+
+    if (sessionId != null) {
+        id = Integer.parseInt(sessionId.toString());
+    }
+
+    if (FleurCategorie != null) {
+        // Rechercher la fleur sélectionnée
+        FleursCategories selectedFleur = null;
+        for (FleursCategories categoryFleur : FleurCategorie) {
+            if (categoryFleur.getFleur_id() == id) {
+                selectedFleur = categoryFleur;
+                break;
             }
         }
-         if (fleurs == null || fleurs.isEmpty()) {
-    %>
-    <p>Aucune fleur trouvée pour l'ID fourni.</p>
-    <%
+
+        if (selectedFleur != null) {
+            // Récupérer ou initialiser le panier dans la session
+            List<FleursCategories> cart = (List<FleursCategories>) session.getAttribute("cart");
+            if (cart == null) {
+                cart = new ArrayList<>();
+                session.setAttribute("cart", cart);
+            }
+
+            // Ajouter la fleur sélectionnée au panier
+            cart.add(selectedFleur);
+            session.setAttribute("cart", cart);
+
+            // Message de confirmation
+            out.println("<p>Fleur ajoutée au panier avec succès : " + selectedFleur.getNomFleur() + "</p>");
         } else {
-    %>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>ID Fleur</th>
-                    <th>Nom</th>
-                    <th>Prix</th>
-                    <th>Descriptions</th>
-                    <th>Nom Catégorie</th>
-                    <th>Quantité</th>
-                </tr>
-            </thead>
-            <tbody>
-                <%
-                    for (FleursCategories fleur : fleurs) {
-                %>
-                <tr>
-                    <td><%= fleur.getNomFleur() %></td>
-                    <td><%= fleur.getPrix() %></td>
-                    <td><%= fleur.getDescriptions() %></td>
-                    <td><img src="<%= fleur.getImages() %>" alt="Image de <%= fleur.getNomFleur() %>" width="100"></td>
-                    <td><%= fleur.getNomCategory() %></td>
-                    <td><%= fleur.getQuantite() %></td>
-                </tr>
-                <%
-                    }
-                %>
-            </tbody>
-        </table>
-    <%
+            out.println("<p>Fleur non trouvée.</p>");
         }
-    %>
-   
+    } else {
+        out.println("<p>La liste des fleurs n'est pas disponible.</p>");
+    }
+     response.setHeader("Refresh", "2; URL=../index.jsp");
+%>
+
+        </tbody>
+     </table>
 </body>
 </html>

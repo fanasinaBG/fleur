@@ -24,8 +24,9 @@ public class RequeteFleurCategorie {
                 String descriptions = resultSet.getString("descriptions");
                 String images = resultSet.getString("images");
                 int categoryId = resultSet.getInt("category_id");
+                int quantite = resultSet.getInt("quantite");
                 String nomCategory = resultSet.getString("nomCategory");
-                FleursCategories fleur = new FleursCategories(fleur_id,nomFleur, prix ,descriptions, images,nomCategory );
+                FleursCategories fleur = new FleursCategories(fleur_id,nomFleur, prix ,descriptions, images,nomCategory,quantite );
                 FleurCategorie.add(fleur);
 
                 // Afficher les données (ou les traiter selon vos besoins)
@@ -35,6 +36,7 @@ public class RequeteFleurCategorie {
                 System.out.println("Images: " + images);
                 System.out.println("Category ID: " + categoryId);
                 System.out.println("Nom Category: " + nomCategory);
+                System.out.println("quantite: " + quantite);
                 System.out.println("----------------------------");
             }
         } catch (Exception e) {
@@ -187,8 +189,8 @@ return FleurCategorie;
         // }
         // System.out.println("Fin du test de searchFleurCategory.");
         //category.getFleurCategory(id);
-        // category.fleurCategory();
-        category.getFleurQuantite(id);
+         category.fleurCategory();
+        //category.getFleurQuantite(id);
 
     } 
 }
