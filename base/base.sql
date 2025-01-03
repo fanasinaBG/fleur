@@ -105,6 +105,7 @@ insert into category(nomCategory,idEvenement)VALUES('Fleurs exotiques',1);
 insert into category(nomCategory,idEvenement)VALUES('Fleurs à bulbe',1);
 insert into category(nomCategory,idEvenement)VALUES('Fleurs annuelles',1);
 insert into category(nomCategory,idEvenement)VALUES('Fleurs vivaces',1);
+select * from fleur;
 
 insert into fleur(nomFleur,prix,idCategory,descriptions,images)VALUES('Coquelicots',28,1,'Le coquelicot est une fleur sauvage aux pétales rouges délicats, souvent associée à la mémoire et à la tranquillité, qui fleurit dans les champs et prairies ensoleillés','/assets/images/Coquelicot.jpg');
 insert into fleur(nomFleur,prix,idCategory,descriptions,images)VALUES('Marguerite',20,1,'La marguerite est une fleur délicate et lumineuse, caractérisée par ses pétales blancs disposés en cercle autour d un cœur jaune vif, symbolisant l innocence et la pureté.','/assets/images/Marguerite.jpg');
