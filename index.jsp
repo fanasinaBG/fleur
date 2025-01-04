@@ -46,9 +46,21 @@
                         <div class="cards">
                             <a href="cards.jsp" style="text-decoration: none; color: inherit;">cards</a>
                         </div>
-                        <div class="contact">
-                            <a href="login.jsp" style="text-decoration: none; color: inherit;">Se connecter</a>
-                          </div>
+                       <div class="contact">
+                            <%
+                                String nom = (String) session.getAttribute("nom");
+                                if (nom != null) {
+                            %>
+                                <a href="Traitement/deconexion.jsp" style="text-decoration: none; color: inherit;">Se déconnecter</a>
+                            <%
+                                } else {
+                            %>
+                                <!-- Lien pour se connecter -->
+                                <a href="login.jsp" style="text-decoration: none; color: inherit;">Se connecter</a>
+                            <%
+                                }
+                            %>
+                        </div>
                     </div>
                     <div class="mdiaccount-alert-outline-parent" id="groupContainer1">
                       <img class="mdiaccount-alert-outline-icon" alt="" src="mdi:account-alert-outline.svg">

@@ -3,6 +3,8 @@
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="java.util.List" %>
 <%@ page import="fleur.Fonction" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %>
 <%@ page import="connection.DatabaseConnection" %>
 <%@ page import="categorie.RequeteCategorie" %>
 <%@ page import="fleur.Fleur" %>
@@ -12,7 +14,7 @@
 <%
     // Créer une instance de votre DAO et récupérer la liste des catégories
     RequeteCategorie Category = new RequeteCategorie();
-    List<String> categories = Category.readCategorie();  // Appel de la méthode pour récupérer les catégories
+    HashMap<String,String> categories = Category.readCategorie();  // Appel de la méthode pour récupérer les catégories
     Fonction fonction = new Fonction();
     List<Fleur> fleurs = fonction.getShuffledFleurs(6);
     List<FleursCategories> FleurCategorie = RequeteFleurCategorie.fleurCategory();
@@ -123,12 +125,17 @@
         <button type="submit">Chercher</button>
     </form>
     <div class="dropdown">
-     <% 
-            // Boucle pour afficher chaque nom de fleur dans le menu déroulant
-            for (String categorie : categories) {
-        %>
-            <div class="dropdown-item"><%= categorie %></div>
-        <% 
+       <% 
+
+            for (Map.Entry<String, String> categorie : categories.entrySet()) {
+                String key = categorie.getKey(); // Clé
+                String value = categorie.getValue(); // Valeur
+     %>
+                <div class="dropdown-item">
+                    <a href="category.jsp?id=<%=key %>"><%= value %> </a> 
+                </div>
+        <%      
+
             }
         %>
       </div>

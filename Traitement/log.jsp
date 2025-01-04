@@ -27,7 +27,7 @@
             //HttpSession session = request.getSession(true);
             session.setAttribute("nom", nom);
             session.setAttribute("email", email);
-            response.sendRedirect("../connecter.jsp");
+            response.sendRedirect("../index.jsp");
     %>
     <p>Connexion réussie!</p>
     <%
