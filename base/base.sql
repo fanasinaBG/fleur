@@ -47,6 +47,13 @@ CREATE TABLE clients (
     Foreign Key (idPayment) REFERENCES payment(id)
 );
 
+CREATE TABLE Admins (
+    id SERIAL PRIMARY KEY, 
+    nomAdmins VARCHAR(100) NOT NULL,
+    email VARCHAR(100)NOT NULL,
+    mdp VARCHAR (100) NOT NULL
+);
+
 CREATE TABLE confirmation (
     id SERIAL PRIMARY KEY, 
     descriptions VARCHAR(55) NOT NULL
@@ -65,6 +72,14 @@ CREATE TABLE Livraison (
     idConfirmation INT,
     Foreign Key (idFleur) REFERENCES fleur(id),
     Foreign Key (idConfirmation) REFERENCES confirmation(id)
+);
+
+CREATE TABLE commande (
+    id SERIAL PRIMARY KEY, 
+    nomProduit VARCHAR(55),
+    personne VARCHAR(55),
+    quantite VARCHAR(55),
+    prix INT
 );
 
 drop table fleur;
@@ -107,6 +122,7 @@ drop Table paymentDetail;
 select * from pay; 
 SELECT nomFleur, nomCategory FROM vue_fleurs_categories WHERE nomFleur LIKE 'Coquelicots%';
 
+insert into Admins(nomAdmins,email,mdp)VALUES('fanasina', 'fanasinabg@gmail.com','bogosy');
 insert into paymentDetail(numero,idPayment)VALUES('5555 5555 5555 4444', 1);
 insert into paymentDetail(numero,idPayment)VALUES('4111 1111 1111 1111', 2);
 
