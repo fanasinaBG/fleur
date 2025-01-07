@@ -33,7 +33,7 @@ CREATE TABLE payment (
 
 CREATE TABLE paymentDetail (
     id SERIAL PRIMARY KEY, 
-    numero INT,
+    numero VARCHAR(255),
     idPayment INT ,
     Foreign Key (idPayment) REFERENCES payment(id)
 );
@@ -90,11 +90,17 @@ FROM
 JOIN 
     category c ON f.idCategory = c.id;
 
-select * from vue_fleurs_categories;
+create VIEW
+
+select * from paymentDetail;
+drop Table paymentDetail;
 
 
-select * from clients; 
+select * from pay; 
 SELECT nomFleur, nomCategory FROM vue_fleurs_categories WHERE nomFleur LIKE 'Coquelicots%';
+
+insert into paymentDetail(numero,idPayment)VALUES('5555 5555 5555 4444', 1);
+insert into paymentDetail(numero,idPayment)VALUES('4111 1111 1111 1111', 2);
 
 insert into evenement(nomEvenement)VALUES('quotidient');
 insert into evenement(nomEvenement)VALUES('evenement');
