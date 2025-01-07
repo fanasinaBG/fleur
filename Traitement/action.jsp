@@ -16,7 +16,7 @@
         }
         else{
             session.setAttribute("tige", tige); // Si nécessaire
-            response.sendRedirect("../buyPage.html");
+            response.sendRedirect("../buyPage.jsp");
         }
     } else {
         // Action non reconnue

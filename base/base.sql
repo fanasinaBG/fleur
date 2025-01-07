@@ -90,9 +90,17 @@ FROM
 JOIN 
     category c ON f.idCategory = c.id;
 
-create VIEW
+    CREATE VIEW paymentDetails AS
+    SELECT 
+        p.nomPayment as cart,
+        d.numero as numeroCart,
+        d.idPayment 
+    FROM 
+        payment p
+    JOIN 
+        paymentDetail d ON p.id = d.idPayment ;
 
-select * from paymentDetail;
+select * from paymentDetails;
 drop Table paymentDetail;
 
 

@@ -109,6 +109,7 @@
                 </div>
                 <div class="tige">
                     <p>Vous voulez acheter combien de tiges ?</p>
+                    <b class="description1"><%= session.getAttribute("idParam") %></b>
                     <input type="number" name="tige" placeholder="tige" required>
                 </div>
                 <div class="description">
