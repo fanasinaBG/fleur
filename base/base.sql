@@ -79,10 +79,11 @@ CREATE TABLE commande (
     nomProduit VARCHAR(55),
     personne VARCHAR(55),
     quantite VARCHAR(55),
-    prix INT
+    prixTotal INT,
+    prixUnitaire Int
 );
 
-drop table fleur;
+drop table commande;
 
 drop table Livraison;
 
@@ -115,7 +116,7 @@ JOIN
     JOIN 
         paymentDetail d ON p.id = d.idPayment ;
 
-select * from paymentDetails;
+select * from commande;
 drop Table paymentDetail;
 
 

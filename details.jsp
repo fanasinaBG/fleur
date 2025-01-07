@@ -105,12 +105,12 @@
             <div class="title-btn">
                 <div class="title">
                     <div class="larkin-wood-full"><%=session.getAttribute("fleurNom") %></div>
-                    <b class="b"> <%=session.getAttribute("fleurPrix") %> € pour 4 tiges</b>
+                    <b class="b"> <%=session.getAttribute("fleurPrix") %> € pour 1 racine</b>
                 </div>
                 <div class="tige">
-                    <p>Vous voulez acheter combien de tiges ?</p>
-                    <b class="description1"><%= session.getAttribute("idParam") %></b>
-                    <input type="number" name="tige" placeholder="tige" required>
+                    <p>Vous voulez acheter combien de racine ?</p>
+                    <b class="description1"></b>
+                    <input type="number" name="tige" placeholder="racine" required>
                 </div>
                 <div class="description">
                     <div class="description-cast-aluminum-container">

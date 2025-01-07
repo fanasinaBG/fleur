@@ -5,22 +5,29 @@ public class Commande {
     private String nomProduit;
     private String personne ;
     private String quantite ;
-    private int prix;
+    private int prixTotal;
+    private int prixUnitaire;
 
     
-    public Commande(String nomProduit, String personne, String quantite, int prix) {
+    public Commande(String nomProduit, String personne, String quantite, int prixTotal, int prixUnitaire) {
         this.nomProduit = nomProduit;
         this.personne = personne;
         this.quantite = quantite;
-        this.prix = prix;
+        this.prixTotal = prixTotal;
+        this.prixUnitaire = prixUnitaire;
     }
-    public Commande(int id, String nomProduit, String personne, String quantite, int prix) {
+
+
+    public Commande(int id, String nomProduit, String personne, String quantite, int prixTotal, int prixUnitaire) {
         this.id = id;
         this.nomProduit = nomProduit;
         this.personne = personne;
         this.quantite = quantite;
-        this.prix = prix;
+        this.prixTotal = prixTotal;
+        this.prixUnitaire = prixUnitaire;
     }
+
+    
     public int getId() {
         return id;
     }
@@ -45,10 +52,19 @@ public class Commande {
     public void setQuantite(String quantite) {
         this.quantite = quantite;
     }
-    public int getPrix() {
-        return prix;
+    public int getPrixTotal() {
+        return prixTotal;
     }
-    public void setPrix(int prix) {
-        this.prix = prix;
-    } 
+    public void setPrixTotal(int prixTotal) {
+        this.prixTotal = prixTotal;
+    }
+    public int getPrixUnitaire() {
+        return prixUnitaire;
+    }
+    public void setPrixUnitaire(int prixUnitaire) {
+        this.prixUnitaire = prixUnitaire;
+    }
+
+    
+  
 }

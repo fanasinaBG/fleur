@@ -6,6 +6,8 @@
 <%@ page import="payment.RequettePDetails" %>
 <%@ page import="connection.DatabaseConnection" %>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
+<%@ page import="commande.Commande" %>
+<%@ page import="commande.RequetComande" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +20,13 @@
     <h1>Résultat de la soumission du formulaire</h1>
     <%
         String nom = (String) session.getAttribute("nom");
-        String id = (String) session.getAttribute("id");
+        String fleur = (String) session.getAttribute("fleurNom");
+        String prix=(String) session.getAttribute("fleurPrix");
+        int total = (Integer) session.getAttribute("total");
+        int prixs=Integer.parseInt(prix);
+        String racine=(String) session.getAttribute("racine");
+
+
         String choix = request.getParameter("choix");
         String cardNumber = request.getParameter("cardnumber");
            // Vérifier si les paramètres ne sont pas null ou vides
@@ -42,6 +50,8 @@
 
         if (isMatchFound) {
             out.println("<p>La correspondance a été trouvée : " + choix + " - " + cardNumber + "</p>");
+            RequetComande command = new RequetComande();
+            command.createCommande(fleur,nom,racine,total,prixs);
             response.sendRedirect("../attente.jsp");
         } else {
             out.println("<p>Aucune correspondance trouvée. Le numéro de carte ne correspond pas au choix sélectionné.</p>");
@@ -53,9 +63,5 @@
     }
 
     %> 
-    <p>nom : <strong><%= nom %></strong></p>
-    <p>id de votre produit : <strong><%= id %></strong></p>
-    <p>Vous avez choisi : <strong><%= choix %></strong></p>
-    <p>Numéro de carte saisi : <strong><%= cardNumber %></strong></p>  
 </body>
 </html>

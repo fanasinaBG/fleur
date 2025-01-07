@@ -2,6 +2,8 @@
     // Récupérer les données du formulaire
     String tige = request.getParameter("tige");
     String action = request.getParameter("action");
+    session.setAttribute("racine", tige);
+
 
     // Rediriger en fonction de l'action
     if ("addToCart".equals(action)) {

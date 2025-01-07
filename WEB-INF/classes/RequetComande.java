@@ -22,15 +22,17 @@ public class RequetComande {
             while (resultSet.next()) {
                 String nomProduit = resultSet.getString("nomProduit");
                 String personne = resultSet.getString("personne");
-                int prix = resultSet.getInt("prix");
+                int prixTotal = resultSet.getInt("prixTotal");
+                int prixUnitaire = resultSet.getInt("prixUnitaire");
                 String quantite = resultSet.getString("quantite");
-                Commande coms = new Commande(nomProduit , personne,quantite,prix );
+                Commande coms = new Commande(nomProduit , personne,quantite,prixTotal,prixUnitaire);
                 commande.add(coms);
 
                 // Afficher les données (ou les traiter selon vos besoins)
                 System.out.println("nomProduit: " + nomProduit);
                 System.out.println("personne: " + personne);
-                System.out.println("prix: " + prix);
+                System.out.println("prixTotal: " + prixTotal);
+                System.out.println("prixUnitaire: " + prixUnitaire);
                 System.out.println("quantite: " + quantite);
                 System.out.println("----------------------------");
             }
@@ -40,19 +42,30 @@ public class RequetComande {
         return commande;
     }
 
-    public void createCommande(String nomProduit,String personne,String quantite,int prix){
-        String sql = "INSERT INTO commande (nomCategory,personne,quantite,prix) VALUES (?,?,?,?)";
+    public void createCommande(String nomProduit,String personne,String quantite,int prixTotal,int prixUnitaire){
+        String sql = "INSERT INTO commande (nomProduit,personne,quantite,prixTotal,prixUnitaire) VALUES (?,?,?,?,?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
                 stmt.setString(1,nomProduit);
                 stmt.setString(2,personne);
                 stmt.setString(3,quantite);
-                stmt.setInt(4,prix);
+                stmt.setInt(4,prixTotal);
+                stmt.setInt(5,prixUnitaire);
 
                 stmt.executeUpdate();  
              }
              catch(SQLException e){
                 System.out.println("Erreur d'ajout" + e.getMessage());
              }
+    }
+
+    public static void main(String []args){
+        RequetComande command = new RequetComande();
+        String fleur="dhalia";
+        String nom="rakoto";
+        String racine="3";
+        int total=3;
+        int prixs=1;
+        command.createCommande(fleur,nom,racine,total,prixs);
     }
 }
