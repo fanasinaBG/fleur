@@ -16,6 +16,11 @@ public class Fleur {
 
     
     
+    public Fleur(int id, int quantite) {
+        this.id = id;
+        this.quantite = quantite;
+    }
+
     public Fleur(int id, String nomFleur, int prix, int idCategory, String descriptions, String images, int quantite) {
         this.id = id;
         this.nomFleur = nomFleur;

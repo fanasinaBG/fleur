@@ -39,7 +39,7 @@
 
         if (isMatchFound) {
             out.println("gg loging reussi");
-            //response.sendRedirect("../attente.jsp");
+            response.sendRedirect("../homeAdmin.jsp");
         } else {
             out.println("<p>Aucune correspondance trouvée.</p>");
            // response.setHeader("Refresh", "2; URL=../buyPage.jsp");

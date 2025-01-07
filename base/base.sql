@@ -47,6 +47,8 @@ CREATE TABLE clients (
     Foreign Key (idPayment) REFERENCES payment(id)
 );
 
+select * from commande;
+
 CREATE TABLE Admins (
     id SERIAL PRIMARY KEY, 
     nomAdmins VARCHAR(100) NOT NULL,
@@ -68,9 +70,12 @@ CREATE TABLE etatLivrer (
 
 CREATE TABLE Livraison (
     id SERIAL PRIMARY KEY, 
-    idFleur INT,
-    idConfirmation INT,
-    Foreign Key (idFleur) REFERENCES fleur(id),
+    Client VARCHAR(55),
+    nomProduit VARCHAR(55),
+    quantite VARCHAR(55),
+    prixTotal INT,
+    prixUnitaire Int,
+    idConfirmation INT, 
     Foreign Key (idConfirmation) REFERENCES confirmation(id)
 );
 
@@ -86,6 +91,8 @@ CREATE TABLE commande (
 drop table commande;
 
 drop table Livraison;
+
+select * from livraison;
 
 drop view vue_fleurs_categories;
 SELECT nomFleur,prix,descriptions,images,nomCategory FROM vue_fleurs_categories WHERE fleur_id =1;
@@ -116,7 +123,7 @@ JOIN
     JOIN 
         paymentDetail d ON p.id = d.idPayment ;
 
-select * from commande;
+select * from fleur where id=2;
 drop Table paymentDetail;
 
 

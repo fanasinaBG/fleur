@@ -21,12 +21,13 @@
         // String mdp = request.getParameter("mdp");
 
         RequeteClient clients = new RequeteClient();
-        boolean isValid = clients.validateClient(nom, email);
+        int clientId = clients.validateClients(nom, email);
 
-        if (isValid) {
+        if (clientId != -1) {
             //HttpSession session = request.getSession(true);
             session.setAttribute("nom", nom);
             session.setAttribute("email", email);
+            session.setAttribute("idClient", String.valueOf(clientId));
             response.sendRedirect("../index.jsp");
     %>
     <p>Connexion réussie!</p>
@@ -34,6 +35,8 @@
         } else {
     %>
     <p>Nom d'utilisateur ou mot de passe incorrect.</p>
+    <p>Nom <%=nom%></p>
+    <p>email <%=email%></p>
     <%
         }
     %>
