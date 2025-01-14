@@ -25,7 +25,7 @@
   	<meta charset="utf-8">
   	<meta name="viewport" content="initial-scale=1, width=device-width">
   	
-  	<link rel="stylesheet"  href="assets/css/category.css" />
+  	<link rel="stylesheet"  href="assets/css/test.css" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair Display:wght@400&display=swap" />
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open Sans:wght@400&display=swap" />
   	
@@ -99,11 +99,17 @@
             <% 
                for (FleursCategories categoryFleur : FleurCategorie) {
             %>
+                <div class="image-details">
+                        <h4><%=categoryFleur.getNomFleur()%></h4>
+                        <p><%=categoryFleur.getPrix() %> €</p>
+                        <p><%=categoryFleur.getNomCategory() %></p>
+                    </div>
       			<div class="image">
                     <div class="image-container1">
                         <img src="<%=request.getContextPath() + categoryFleur.getImages() %>"alt="Image 1" class="fleurImage">
                     </div>  
       			</div>
+                    
                 <%
                     }
                 %>

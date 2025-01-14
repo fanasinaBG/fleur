@@ -33,9 +33,13 @@
         RequeteFleurCategorie category=new RequeteFleurCategorie();
         Fonction fleures= new Fonction();
         List<FleursCategories> fleur = category.fleurCategory();
+        out.println("test");
 
         for (FleursCategories fleurs : fleur) { 
                 if (fleurs.getFleur_id() == id) {
+
+                     out.println("votre quantiter de stock est faible" + fleurs.getFleur_id());
+                     
                     if(fleurs.getQuantite() >= Integer.parseInt(commande.getQuantite()) ){
                         
                         int quantite= fleurs.getQuantite() - Integer.parseInt(commande.getQuantite());
@@ -45,20 +49,6 @@
                         fleures.updateQuantiteFleur(vonikazo);
                         out.println("supression reussi");
 
-                        int prixUnitaire=fleurs.getPrix();
-                        int prixTotal= commande.getPrixTotal();
-                        String quantites= commande.getQuantite();
-                        String personne= commande.getPersonne();
-                        String vonikaz=fleurs.getNomFleur();
-
-                        Livraison livraisonObj = new Livraison();
-                            livraisonObj.setClient(personne);
-                            livraisonObj.setNomProduit(vonikaz);
-                            livraisonObj.setQuantite(quantites);
-                            livraisonObj.setPrixTotal(prixTotal);
-                            livraisonObj.setPrixUnitaire(prixUnitaire);
-
-                        livraison.createLivraison(livraisonObj);
                         response.sendRedirect("../homeAdmin.jsp");
                     }
                     else{

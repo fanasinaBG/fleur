@@ -7,7 +7,6 @@ CREATE TABLE evenement (
 CREATE TABLE category (
     id SERIAL PRIMARY KEY, 
     nomCategory VARCHAR(100) NOT NULL,
-    idEvenement INT,
     Foreign Key (idEvenement) REFERENCES evenement(id) 
 );
 
@@ -18,7 +17,6 @@ CREATE TABLE fleur (
     nomFleur VARCHAR(100) NOT NULL,
     prix INT,
     idCategory INT,
-    descriptions VARCHAR(255),
     images VARCHAR(55),
     quantite INT,
     Foreign Key (idCategory) REFERENCES category(id) 
@@ -143,11 +141,27 @@ insert into category(nomCategory,idEvenement)VALUES('Fleurs exotiques',1);
 insert into category(nomCategory,idEvenement)VALUES('Fleurs à bulbe',1);
 insert into category(nomCategory,idEvenement)VALUES('Fleurs annuelles',1);
 insert into category(nomCategory,idEvenement)VALUES('Fleurs vivaces',1);
+insert into category(nomCategory)VALUES('Fleurs verte');
+insert into category(nomCategory)VALUES('Fleurs nocturene');
+
+select * from category;
+
 select * from fleur;
 
 drop table fleur;
 
 drop view vue_fleurs_categories;
+insert into fleur(nomFleur,prix,idCategory,images,quantite)VALUES('Monstera deliciosa',38,7,'/assets/images/Monstera deliciosa.jpg',100);
+insert into fleur(nomFleur,prix,idCategory,images,quantite)VALUES('Ficus elastica',48,7,'/assets/images/Ficus elastica.jpg',100);
+insert into fleur(nomFleur,prix,idCategory,images,quantite)VALUES('Chlorophytum comosum',58,7,'/assets/images/Chlorophytum comosum.jpg',100);
+insert into fleur(nomFleur,prix,idCategory,images,quantite)VALUES('Dracaena marginata',58,7,'/assets/images/Dracaena marginata.jpg',100);
+insert into fleur(nomFleur,prix,idCategory,images,quantite)VALUES('Sansevieria trifasciata',28,7,'/assets/images/Sansevieria trifasciata.jpg',100);
+
+insert into fleur(nomFleur,prix,idCategory,images,quantite)VALUES('Epiphyllum oxypetalum',49,8,'/assets/images/Epiphyllum oxypetalum.jpg',100);
+insert into fleur(nomFleur,prix,idCategory,images,quantite)VALUES('Sansevieria trifasciata',58,8,'/assets/images/Sansevieria.jpg',100);
+insert into fleur(nomFleur,prix,idCategory,images,quantite)VALUES('Jasminum sambac ',18,8,'/assets/images/Jasminum sambac.jpg',100);
+insert into fleur(nomFleur,prix,idCategory,images,quantite)VALUES('Cestrum nocturnum',38,8,'/assets/images/Cestrum nocturnum.jpg',100);
+insert into fleur(nomFleur,prix,idCategory,images,quantite)VALUES('Aloe vera',28,8,'/assets/images/Aloe vera.jpg',100);
 
 insert into fleur(nomFleur,prix,idCategory,descriptions,images,quantite)VALUES('Coquelicots',28,1,'Le coquelicot est une fleur sauvage aux pétales rouges délicats, souvent associée à la mémoire et à la tranquillité, qui fleurit dans les champs et prairies ensoleillés','/assets/images/Coquelicot.jpg',100);
 insert into fleur(nomFleur,prix,idCategory,descriptions,images,quantite)VALUES('Marguerite',20,1,'La marguerite est une fleur délicate et lumineuse, caractérisée par ses pétales blancs disposés en cercle autour d un cœur jaune vif, symbolisant l innocence et la pureté.','/assets/images/Marguerite.jpg',100);
