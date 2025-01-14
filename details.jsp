@@ -55,9 +55,21 @@
                         <div class="help">Home</div>
                         <div class="shop">Shop</div>
                         <div class="about">About</div>
-                        <div class="contact">
-                            <a href="login.html" style="text-decoration: none; color: inherit;">Se connecter</a>
-                          </div>
+                         <div class="contact">
+                            <%
+                                String nom = (String) session.getAttribute("nom");
+                                if (nom != null) {
+                            %>
+                                <a href="Traitement/deconexion.jsp" style="text-decoration: none; color: inherit;">Se déconnecter</a>
+                            <%
+                                } else {
+                            %>
+                                <!-- Lien pour se connecter -->
+                                <a href="login.jsp" style="text-decoration: none; color: inherit;">Se connecter</a>
+                            <%
+                                }
+                            %>
+                        </div>
                     </div>
                     <div class="mdiaccount-alert-outline-parent" id="groupContainer1">
                         <img class="mdiaccount-alert-outline-icon" alt="" src="mdi:account-alert-outline.svg">
@@ -81,70 +93,59 @@
     		<div class="heading">
       			<b class="special-package">Votre produit</b>
     		</div>
-            <form action="Traitement/detailes.jsp" method="POST">
-    		<div class="block">
-      			<div class="main-block">
-        				<div class="image">
-                            <%
-                                if (selectedFleur != null) {
-                            %>
-          					<div class="image-container">
-                                <img class="sary" alt="" src="<%=request.getContextPath() + session.getAttribute("fleurImage") %>">
-          					</div>
-        				</div>
-        				<div class="title-btn">
-          					<div class="title">
-            						<div class="larkin-wood-full"><%=session.getAttribute("fleurNom") %></div>
-            						<b class="b"> <%=session.getAttribute("fleurPrix") %> € pour 4 tige</b>
-          					</div>
-                            <div class="tige">
-                                <p>vous voulez acheter combien de tige?</p>
-                                <input type="number" name="tige" placeholder="tige">
+           <form action="Traitement/action.jsp" method="POST">
+    <div class="block">
+        <div class="main-block">
+            <div class="image">
+                <% if (selectedFleur != null) { %>
+                <div class="image-container">
+                    <img class="sary" alt="" src="<%=request.getContextPath() + session.getAttribute("fleurImage") %>">
+                </div>
+            </div>
+            <div class="title-btn">
+                <div class="title">
+                    <div class="larkin-wood-full"><%=session.getAttribute("fleurNom") %></div>
+                    <b class="b"> <%=session.getAttribute("fleurPrix") %> € pour 1 racine</b>
+                </div>
+                <div class="tige">
+                    <p>Vous voulez acheter combien de racine ?</p>
+                    <b class="description1"></b>
+                    <input type="number" name="tige" placeholder="racine" required>
+                </div>
+                <div class="description">
+                    <div class="description-cast-aluminum-container">
+                        <p class="description">
+                            <b class="description1"><%=session.getAttribute("fleurDetails") %></b>
+                        </p>
+                        <p class="cast-aluminum-outdoor">Cast Aluminum Outdoor Chaise Lounge As an elegant and classic touch to your outdoor space, this cast...</p>
+                    </div>
+                </div>
+                <% } %>
+                <div class="button-group">
+                    <!-- Bouton Add to Cart -->
+                    <button class="btn-add-to-cart" type="submit" name="action" value="addToCart">
+                        <div class="text">
+                            <div class="add-to-cart">Add to cart</div>
+                            <div class="icon">
+                                <img class="vector-icon1" alt="" src="Vector.svg">
                             </div>
-          					<div class="desctiption">
-            						<div class="description-cast-aluminum-container">
-              							<p class="description">
-                								<b class="description1"><%=session.getAttribute("fleurDetails") %></b>
-              							</p>
-              							<p class="description">
-                								<b class="description1">&nbsp;</b>
-              							</p>
-              							<p class="cast-aluminum-outdoor">Cast Aluminum Outdoor Chaise Lounge As an elegant and classic touch to your outdoor space, this cast...</p>
-            						</div>
-            						<div class="see-more">
-              							<div class="see-more1">See More</div>
-              							<img class="down-arrow-icon" alt="" src="Down-arrow.svg">
-              							
-            						</div>
-          					</div>
-                              <%
-                            }
-                            %>
-                              <div class="button-group">
-                                <button class="btn-add-to-cart">
-                                      <div class="text">
-                                            <div class="add-to-cart">Add to cart</div>
-                                            <div class="icon">
-                                                  <img class="vector-icon1" alt="" src="Vector.svg">
-                                                  
-                                            </div>
-                                      </div>
-                                </button>
-                                  <button class="achter">
-                                      <div class="text">
-                                          <div class="add-to-cart">Buy</div>
-                                          <div class="icon">
-                                                  <img class="vector-icon1" alt="" src="Vector.svg">
-                                                  
-                                          </div>
-                                      </div>
-                              </button>
-                          </div>
-        				</div>
-      			</div>
-    		</div>
-        </form>
-  	</div>
+                        </div>
+                    </button>
 
+                    <!-- Bouton Buy -->
+                    <button class="achter" type="submit" name="action" value="buy">
+                        <div class="text">
+                            <div class="add-to-cart">Buy</div>
+                            <div class="icon">
+                                <img class="vector-icon1" alt="" src="Vector.svg">
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
 </body>
 </html>

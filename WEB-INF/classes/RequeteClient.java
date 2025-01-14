@@ -109,6 +109,30 @@ public class RequeteClient {
              }
     }
 
+    public int validateClients(String nom, String email) {
+        String sql = "SELECT id FROM clients WHERE nomClient = ? AND email = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+    
+            stmt.setString(1, nom);
+            stmt.setString(2, email);
+    
+            ResultSet resultSet = stmt.executeQuery();
+    
+            if (resultSet.next()) {
+                return resultSet.getInt("id"); // Retourne l'ID si trouvé
+            } else {
+                System.out.println("Aucune correspondance trouvée pour : " + nom + ", " + email);
+            }
+        } catch (SQLException e) {
+            System.out.println("Erreur SQL : " + e.getMessage());
+        }
+        return -1; // Retourne -1 si aucune correspondance
+    }
+    
+    
+    
+
     public static void main(String[] args) {
         RequeteClient requete = new RequeteClient();
         // String Nom = "anarana";

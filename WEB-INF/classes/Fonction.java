@@ -89,6 +89,19 @@ public class Fonction {
         
     }
 
+    public void updateQuantiteFleur(Fleur fleur) {
+        String sql = "UPDATE fleur SET quantite = ? WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, fleur.getQuantite());
+            stmt.setInt(2, fleur.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de la mise à jour : " + e.getMessage());
+        }
+        
+    }
+
     public void deleteFleur(int id) {
         String sql = "DELETE FROM fleur WHERE id = ?";
         try (Connection conn = DatabaseConnection.getConnection();

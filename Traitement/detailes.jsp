@@ -52,7 +52,7 @@
             session.setAttribute("cart", cart);
 
             // Message de confirmation
-            out.println("<p>Fleur ajoutée au panier avec succès : " + selectedFleur.getNomFleur() + "</p>");
+            id
         } else {
             out.println("<p>Fleur non trouvée.</p>");
         }
