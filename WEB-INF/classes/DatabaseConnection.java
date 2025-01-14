@@ -12,7 +12,7 @@ public class DatabaseConnection{
             // Détails de la connexion à la base de données
             String url = "jdbc:postgresql://localhost:5432/fleur";
             String username = "postgres";
-            String password = "123";
+            String password = "fanasina";
             
             // Créer la connexion
             connection = DriverManager.getConnection(url, username, password);
