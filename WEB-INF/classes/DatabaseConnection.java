@@ -6,13 +6,13 @@ import java.sql.SQLException;
 public class DatabaseConnection {
     public static Connection getConnection() throws SQLException {
         Connection connection = null;
-        try {
+        try {   
             // Charger le driver PostgreSQL
             Class.forName("org.postgresql.Driver");
             // Détails de la connexion à la base de données
             String url = "jdbc:postgresql://localhost:5432/fleur";
             String username = "postgres";
-            String password = "fanasina";
+            String password = "123";
             
             // Créer la connexion
             connection = DriverManager.getConnection(url, username, password);
@@ -22,7 +22,7 @@ public class DatabaseConnection {
             e.printStackTrace();
             throw new SQLException("Erreur de connexion à la base de données lesy et.");
         }
-        return connection;
+        return connection; 
     }
   
     public static void main(String[] args) {

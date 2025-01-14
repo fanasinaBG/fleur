@@ -24,7 +24,12 @@ CREATE TABLE fleur (
     Foreign Key (idCategory) REFERENCES category(id) 
 );
 
-
+CREATE TABLE administrateur (
+    id SERIAL PRIMARY KEY,
+    nomAdmin VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    mdp VARCHAR(100) NOT NULL
+);
 
 CREATE TABLE payment (
     id SERIAL PRIMARY KEY, 
@@ -158,11 +163,11 @@ paymentDetail numero idPayment
 
 insert into paymentDetail(numero,idPayment)VALUES(4970101234567890,1);//mpbol tsy mandeh
 
-clients
 
 insert into clients(nomClient,email,mdp)VALUES('jibril','ibril@gmail.com','Karen');
 
 select * from clients;
 
+insert into administrateur(nomAdmin, email, mdp) VALUES ('jean', 'jean@gmail.com', '123');
 
-
+select * from administrateur;
