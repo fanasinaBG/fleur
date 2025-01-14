@@ -21,18 +21,18 @@ public class RequeteFleurCategorie {
                 int fleur_id = resultSet.getInt("fleur_id");
                 String nomFleur = resultSet.getString("nomFleur");
                 int prix = resultSet.getInt("prix");
-                String descriptions = resultSet.getString("descriptions");
+                // String descriptions = resultSet.getString("descriptions");
                 String images = resultSet.getString("images");
                 int categoryId = resultSet.getInt("category_id");
                 int quantite = resultSet.getInt("quantite");
                 String nomCategory = resultSet.getString("nomCategory");
-                FleursCategories fleur = new FleursCategories(fleur_id,nomFleur, prix ,descriptions, images,nomCategory,quantite );
+                FleursCategories fleur = new FleursCategories(fleur_id,nomFleur, prix , images,nomCategory,quantite );
                 FleurCategorie.add(fleur);
 
                 // Afficher les données (ou les traiter selon vos besoins)
                 System.out.println("Nom Fleur: " + nomFleur);
                 System.out.println("Prix: " + prix);
-                System.out.println("Descriptions: " + descriptions);
+                // System.out.println("Descriptions: " + descriptions);
                 System.out.println("Images: " + images);
                 System.out.println("Category ID: " + categoryId);
                 System.out.println("Nom Category: " + nomCategory);
