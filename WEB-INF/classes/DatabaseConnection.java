@@ -3,10 +3,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DatabaseConnection{
+public class DatabaseConnection {
     public static Connection getConnection() throws SQLException {
         Connection connection = null;
-        try {   
+        try {
             // Charger le driver PostgreSQL
             Class.forName("org.postgresql.Driver");
             // Détails de la connexion à la base de données
@@ -22,7 +22,7 @@ public class DatabaseConnection{
             e.printStackTrace();
             throw new SQLException("Erreur de connexion à la base de données lesy et.");
         }
-        return connection; 
+        return connection;
     }
   
     public static void main(String[] args) {
