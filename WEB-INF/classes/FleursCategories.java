@@ -22,6 +22,15 @@ public class FleursCategories {
         this.nomCategory = nomCategory;
         this.quantite = quantite;
     }
+    public FleursCategories(int fleur_id, String nomFleur, int prix, String images,
+            String nomCategory, int quantite) {
+        this.fleur_id = fleur_id;
+        this.nomFleur = nomFleur;
+        this.prix = prix;
+        this.images = images;
+        this.nomCategory = nomCategory;
+        this.quantite = quantite;
+    }
     public FleursCategories(int fleur_id, String nomFleur, int prix, String descriptions, String images, int categoryId,
             String nomCategory, int quantite) {
         this.fleur_id = fleur_id;

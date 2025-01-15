@@ -124,7 +124,7 @@
     </div>
     <form class="search-bar" action="search.jsp" method="GET">
         <img src="assets/image/Icon.svg" alt="Recherche" class="search-icon">
-        <input type="text" name="query" placeholder="Rechercher..." onkeyup="performSearch(this.value)" autocomplete="off">
+        <input type="text" name="query" placeholder="Rechercher..." >
         <button type="submit">Chercher</button>
     </form>
     <div id="suggestions" class="suggestions"></div> 

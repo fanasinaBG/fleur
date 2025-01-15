@@ -24,17 +24,17 @@ public class Fonction {
             while (resultSet.next()) {
                 String nomFleur = resultSet.getString("nomFleur");
                 int prix = resultSet.getInt("prix");
-                String descriptions = resultSet.getString("descriptions");
+                // String descriptions = resultSet.getString("descriptions");
                 String images = resultSet.getString("images");
                 int categoryId = resultSet.getInt("category_id");
                 // String nomCategory = resultSet.getString("nomCategory");
-                Fleur fleur = new Fleur(nomFleur, prix, categoryId,descriptions, images );
+                Fleur fleur = new Fleur(nomFleur, prix, categoryId, images );
                 fleurs.add(fleur);
 
                 // Afficher les données (ou les traiter selon vos besoins)
                 System.out.println("Nom Fleur: " + nomFleur);
                 System.out.println("Prix: " + prix);
-                System.out.println("Descriptions: " + descriptions);
+                // System.out.println("Descriptions: " + descriptions);
                 System.out.println("Images: " + images);
                 System.out.println("Category ID: " + categoryId);
                 //System.out.println("Nom Category: " + nomCategory);
@@ -44,6 +44,45 @@ public class Fonction {
             e.printStackTrace();
         }
         return fleurs;
+    }
+
+    public Fleur searchFleur(String fleur) {
+        String query = "SELECT * FROM vue_fleurs_categories WHERE nomFleur LIKE ?";
+        Fleur foundFleur = null;
+
+        try (Connection connection = DatabaseConnection.getConnection();
+         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+        // Paramètre pour la recherche
+        preparedStatement.setString(1, "%" + fleur + "%");
+
+        try (ResultSet resultSet = preparedStatement.executeQuery()) {
+            // Vérifie si des résultats existent
+            if (resultSet.next()) {
+                String nomFleur = resultSet.getString("nomFleur");
+                int prix = resultSet.getInt("prix");
+                String descriptions = resultSet.getString("descriptions");
+                String images = resultSet.getString("images");
+                int categoryId = resultSet.getInt("category_id");
+                
+                // Crée l'objet Fleur
+                foundFleur = new Fleur(nomFleur, prix, categoryId, descriptions, images);
+
+                // Facultatif : Afficher les données récupérées
+                System.out.println("Nom Fleur: " + nomFleur);
+                System.out.println("Prix: " + prix);
+                System.out.println("Descriptions: " + descriptions);
+                System.out.println("Images: " + images);
+                System.out.println("Category ID: " + categoryId);
+                System.out.println("----------------------------");
+            } else {
+                System.out.println("Aucune fleur trouvée pour : " + fleur);
+            }
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return foundFleur;
     }
 
     // Mélanger les fleurs
@@ -116,17 +155,17 @@ public class Fonction {
     public static void main(String[] args) {
         Fonction view = new Fonction();
 
-       // view.fetchFleursCategories();
+        view.fetchFleursCategories();
         
         // String nom = "Chainse";
         // int prix = 50;
-        int id = 32;
-        int limit=3;
-        view.getShuffledFleurs(limit);
+        // int id = 32;
+        // int limit=3;
+        // view.getShuffledFleurs(limit);
 
-        //Fleur fleur = new Fleur(id);
-        view.deleteFleur(id);
-        System.out.println("Fleur delete avec succès !");
+        // //Fleur fleur = new Fleur(id);
+        // view.deleteFleur(id);
+        // System.out.println("Fleur delete avec succès !");
 
         // Fleur fleur = new Fleur(nom, prix);
         // view.createFleur(fleur);
