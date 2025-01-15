@@ -1,16 +1,16 @@
-import java.util.Date;
+package promotion;
 
 public class Promotion {
-    int id;
-    int idFleur;
-    int promotion;
-    DATE dateFin;
+    private int id;
+    private int idFleur;
+    private int promotion;
+    private String dateFin;
 
     
     public Promotion() {
     }
 
-    public Promotion(int id, int idFleur, int promotion, DATE dateFin) {
+    public Promotion(int id, int idFleur, int promotion, String dateFin) {
         this.id = id;
         this.idFleur = idFleur;
         this.promotion = promotion;
@@ -35,10 +35,10 @@ public class Promotion {
     public void setPromotion(int promotion) {
         this.promotion = promotion;
     }
-    public DATE getDateFin() {
+    public String getDateFin() {
         return dateFin;
     }
-    public void setDateFin(DATE dateFin) {
+    public void setDateFin(String dateFin) {
         this.dateFin = dateFin;
     }
 }
