@@ -272,15 +272,6 @@ insert into fleur(nomFleur,prix,images,quantite)VALUES('Echinacea',5,6,'L échin
 insert into payment(nomPayment)VALUES('PayPal');
 insert into payment(nomPayment)VALUES('Carte Bancaire');
 
-/*
-create table promotion(
-    id SERIAL PRIMARY KEY, 
-    idFleur INT,
-    promotion INT,
-    dateFin DATE
-);
-*/
-
 insert into promotion(idFleur, )
 
 paymentDetail numero idPayment 
