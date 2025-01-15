@@ -46,6 +46,9 @@ ON
     f.id = p.idFleur;
 
 
+insert into promotion(idFleur,promotion,dateFin)values(1,25,'2025-12-31');
+
+
 CREATE table FleurCategory(
     id SERIAL PRIMARY KEY,
     idFleur INT,

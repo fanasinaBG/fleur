@@ -4,7 +4,7 @@ public class Promotion {
     int id;
     int idFleur;
     int promotion;
-    DATE dateFin;
+    String dateFin;
 
     
     public Promotion() {
