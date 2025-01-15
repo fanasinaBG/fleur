@@ -22,6 +22,13 @@ CREATE TABLE fleur (
     quantite INT
 );
 
+create table promotion(
+    id SERIAL PRIMARY KEY, 
+    idFleur INT,
+    promotion INT,
+    dateFin DATE
+);
+
 CREATE table FleurCategory(
     id SERIAL PRIMARY KEY,
     idFleur INT,
