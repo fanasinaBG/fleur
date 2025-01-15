@@ -117,7 +117,7 @@ select * from livraison;
 drop view vue_fleurs_categories;
 SELECT nomFleur,prix,descriptions,images,nomCategory FROM vue_fleurs_categories WHERE fleur_id =1;
 select * from vue_fleurs_categories;
-drop view vue_fleurs_categories;
+
 CREATE VIEW vue_fleurs_categories AS
 SELECT 
     f.id AS fleur_id,
@@ -184,12 +184,16 @@ insert into category(nomCategory)VALUES('Fleurs vivaces');
 insert into category(nomCategory)VALUES('Fleurs verte');
 insert into category(nomCategory)VALUES('Fleurs nocturene');
 
-select * from category;
 
-select * from fleur;
 
-drop table fleur;
 
+<<<<<<< HEAD
+insert into fleur(nomFleur,prix,idCategory,images,quantite)VALUES('Monstera deliciosa',38,7,'/assets/images/Monstera deliciosa.jpg',100);
+insert into fleur(nomFleur,prix,idCategory,images,quantite)VALUES('Ficus elastica',48,7,'/assets/images/Ficus elastica.jpg',100);
+insert into fleur(nomFleur,prix,idCategory,images,quantite)VALUES('Chlorophytum comosum',58,7,'/assets/images/Chlorophytum comosum.jpg',100);
+insert into fleur(nomFleur,prix,idCategory,images,quantite)VALUES('Dracaena marginata',58,7,'/assets/images/Dracaena marginata.jpg',100);
+insert into fleur(nomFleur,prix,idCategory,images,quantite)VALUES('Sansevieria trifasciata',28,7,'/assets/images/Sansevieria trifasciata.jpg',100);
+=======
 drop view vue_fleurs_categories;
 insert into FleurCategory(idFleur,idCategory)values(1,1);
 insert into fleur(nomFleur,prix,images,quantite)VALUES('Monstera deliciosa',38,'/assets/images/Monstera deliciosa.jpg',100);
@@ -197,6 +201,7 @@ insert into fleur(nomFleur,prix,images,quantite)VALUES('Ficus elastica',48,'/ass
 insert into fleur(nomFleur,prix,images,quantite)VALUES('Chlorophytum comosum',58,'/assets/images/Chlorophytum comosum.jpg',100);
 insert into fleur(nomFleur,prix,images,quantite)VALUES('Dracaena marginata',58,'/assets/images/Dracaena marginata.jpg',100);
 insert into fleur(nomFleur,prix,images,quantite)VALUES('Sansevieria trifasciata',28,'/assets/images/Sansevieria trifasciata.jpg',100);
+>>>>>>> a7838606071ebeca2946064299878b993b9cd94b
 
 insert into fleur(nomFleur,prix,images,quantite)VALUES('Epiphyllum oxypetalum',49,'/assets/images/Epiphyllum oxypetalum.jpg',100);
 insert into fleur(nomFleur,prix,images,quantite)VALUES('Sansevieria trifasciata',58,'/assets/images/Sansevieria.jpg',100);
