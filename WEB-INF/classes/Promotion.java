@@ -6,7 +6,7 @@ public class Promotion {
     private int promotion;
     private String dateFin;
 
-
+ 
     
     public Promotion() {
     }
@@ -43,7 +43,6 @@ public class Promotion {
         this.dateFin = dateFin;
     }
 }
-
 
 
 
