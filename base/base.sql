@@ -29,6 +29,23 @@ create table promotion(
     dateFin DATE
 );
 
+CREATE VIEW vue_fleurs_promotions AS
+SELECT 
+    f.id AS id_fleur,
+    f.nomFleur,
+    f.prix,
+    f.images,
+    f.quantite,
+    p.promotion,
+    p.dateFin
+FROM 
+    fleur f
+ JOIN 
+    promotion p
+ON 
+    f.id = p.idFleur;
+
+
 CREATE table FleurCategory(
     id SERIAL PRIMARY KEY,
     idFleur INT,
