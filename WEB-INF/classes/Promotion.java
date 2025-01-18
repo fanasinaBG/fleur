@@ -7,7 +7,7 @@ public class Promotion {
     private String dateFin;
     private String dateDebut;
 
-
+ 
     
     public Promotion(int idFleur, int promotion, String dateFin, String dateDebut) {
         this.idFleur = idFleur;
@@ -74,7 +74,6 @@ public class Promotion {
     
     
 }
-
 
 
 
