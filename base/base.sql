@@ -21,7 +21,7 @@ CREATE TABLE fleur (
     images VARCHAR(55),
     quantite INT
 );
-
+select * from promotion;
 drop table promotion;
 drop view vue_fleurs_promotions;
 create table promotion(
@@ -32,7 +32,12 @@ create table promotion(
     dateDebut DATE
 );
 
+drop table promotion;
+drop View vue_fleurs_promotions;
+
 select * from fleur;
+
+select * from vue_fleurs_promotions;
 
 select * from promotion;
 

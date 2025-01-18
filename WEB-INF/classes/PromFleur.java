@@ -1,5 +1,7 @@
 package promotion;
 
+import java.sql.Date;
+
 public class PromFleur {
     private int idFleur;
     private String nomFleur;
@@ -7,22 +9,12 @@ public class PromFleur {
     private String images;
     private int quantite;
     private int promotion;
-    private String dateFin;
+    private Date dateFin;
+    private Date dateDebut;
+
     
-    public PromFleur(int idFleur, String nomFleur, int prixFleur, String images, int promotion, String dateFin) {
-        this.idFleur = idFleur;
-        this.nomFleur = nomFleur;
-        this.prixFleur = prixFleur;
-        this.images = images;
-        this.promotion = promotion;
-        this.dateFin = dateFin;
-    }
-
-    public PromFleur() {
-    }
-
     public PromFleur(int idFleur, String nomFleur, int prixFleur, String images, int quantite, int promotion,
-            String dateFin) {
+            Date dateFin, Date dateDebut) {
         this.idFleur = idFleur;
         this.nomFleur = nomFleur;
         this.prixFleur = prixFleur;
@@ -30,6 +22,7 @@ public class PromFleur {
         this.quantite = quantite;
         this.promotion = promotion;
         this.dateFin = dateFin;
+        this.dateDebut = dateDebut;
     }
     
     public int getIdFleur() {
@@ -62,17 +55,25 @@ public class PromFleur {
     public void setQuantite(int quantite) {
         this.quantite = quantite;
     }
+    public Date getDateFin() {
+        return dateFin;
+    }
+    public void setDateFin(Date dateFin) {
+        this.dateFin = dateFin;
+    }
+    public Date getDateDebut() {
+        return dateDebut;
+    }
+    public void setDateDebut(Date dateDebut) {
+        this.dateDebut = dateDebut;
+    }
     public int getPromotion() {
         return promotion;
     }
     public void setPromotion(int promotion) {
         this.promotion = promotion;
     }
-    public String getDateFin() {
-        return dateFin;
-    }
-    public void setDateFin(String dateFin) {
-        this.dateFin = dateFin;
-    }
+    
+   
 }
 

@@ -26,8 +26,9 @@ public class RequetePromotion {
                 String images = resultSet.getString("images");
                 int promo = resultSet.getInt("promotion");
                 int quantite = resultSet.getInt("quantite");
-                String dateFin = resultSet.getString("dateFin");
-                PromFleur promos = new PromFleur(fleur_id,nomFleur, prix , images,promo,dateFin );
+                Date dateFin = resultSet.getDate("dateFin");
+                Date dateDebut=resultSet.getDate("dateDebut");
+                PromFleur promos = new PromFleur(fleur_id,nomFleur, prix , images,quantite,promo,dateFin,dateDebut );
                 promotion.add(promos);
 
                 // Afficher les données (ou les traiter selon vos besoins)
@@ -38,6 +39,7 @@ public class RequetePromotion {
                 // System.out.println("Category ID: " + categoryId);
                 // System.out.println("Nom Category: " + nomCategory);
                 System.out.println("quantite: " + quantite);
+                System.out.println("promo: " + promo);
                 System.out.println("----------------------------");
             }
         } catch (Exception e) {
@@ -52,8 +54,8 @@ public class RequetePromotion {
             
             stmt.setInt(1, promotion.getIdFleur());          // Paramètre 1 : idFleur
             stmt.setInt(2, promotion.getPromotion());        // Paramètre 2 : promotion
-            stmt.setString(3, promotion.getDateFin());       // Paramètre 3 : dateFin
-            stmt.setString(4, promotion.getDateDebut());     // Paramètre 4 : dateDebut
+            stmt.setDate(3, promotion.getDateFin());       // Paramètre 3 : dateFin
+            stmt.setDate(4, promotion.getDateDebut());     // Paramètre 4 : dateDebut
             
             stmt.executeUpdate();  // Exécution de la requête d'insertion
         } catch (SQLException e) {
@@ -61,10 +63,7 @@ public class RequetePromotion {
         }
     }
 
-    public void insertPromotion(String startDate, String endDate, String promo, String fleurId) {
-        // Convertir les valeurs des paramètres en types appropriés
-        int idFleur = Integer.parseInt(fleurId); 
-        int proms = Integer.parseInt(promo);
+    public void insertPromotion( int idFleur, int proms,String startDate, String endDate) {
 
         // Définir la requête SQL pour l'insertion
         String sql = "INSERT INTO promotion (idFleur, promotion, dateFin, dateDebut) VALUES (?, ?, ?, ?)";
@@ -75,8 +74,8 @@ public class RequetePromotion {
             // Préparer la requête avec les paramètres
             stmt.setInt(1, idFleur);  // Paramètre 1 : idFleur
             stmt.setInt(2, proms);     // Paramètre 2 : promotion
-            stmt.setString(3, endDate);  // Paramètre 3 : dateFin
-            stmt.setString(4, startDate); // Paramètre 4 : dateDebut
+            stmt.setDate(3,Date.valueOf(endDate));  // Paramètre 3 : dateFin
+            stmt.setDate(4, Date.valueOf(startDate)); // Paramètre 4 : dateDebut
 
             // Exécuter la requête d'insertion
             stmt.executeUpdate();

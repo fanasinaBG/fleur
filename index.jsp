@@ -13,6 +13,9 @@
 <%@ page import="promotion.RequetePromotion" %>
 <%@ page import="promotion.PromFleur" %>
 <%@ page import="promotion.Promotion" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page import="java.sql.Date" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
 <%
     // Créer une instance de votre DAO et récupérer la liste des catégories
     RequeteCategorie Category = new RequeteCategorie();
@@ -24,6 +27,8 @@
 
     RequetePromotion pro=new RequetePromotion();
     List<PromFleur> promo=pro.fleurPromotion();
+
+    LocalDate today = LocalDate.now();
 
 %>
 
@@ -174,16 +179,35 @@
                 <div class=" cards"> 
                     <a href="Traitement/add.jsp?id=<%=categoryFleur.getFleur_id() %>">
                     <p>add</p>
+                    </a>
                 </div>
             </div>
             <% 
                 }
              %>
+
+
     </div>
     <div class="promotion">
         <H1>Nos promotion</H1>
             <div class="promo">
-                <% for (PromFleur promotion : promo) {%>
+                <% for (PromFleur promotion : promo) {
+
+                     System.out.println("Today: " + today);
+
+                    LocalDate dateDebut = promotion.getDateDebut().toLocalDate();
+                    LocalDate dateFin = promotion.getDateFin().toLocalDate();
+
+                    System.out.println("Promotion: " + promotion.getNomFleur());
+                    System.out.println("Date début: " + dateDebut + ", Date fin: " + dateFin);
+                    %>
+                    <p>
+                        Promotion: <%= promotion.getPromotion() %><br>
+                    
+              <%
+                    if ((today.isEqual(dateDebut) || today.isAfter(dateDebut)) &&
+                            (today.isEqual(dateFin) || today.isBefore(dateFin))){
+                    %>
                     <div class="image-item">
                         <div class="img-container">
                             <img src="<%=request.getContextPath() + promotion.getImages() %>"alt="Image 1" class="fleurImage2">
@@ -194,7 +218,9 @@
                             <p>-<%=promotion.getPromotion()%>%</p>
                         </div>
                     </div>
-                <% } %>
+                <% }
+                    }
+                     %>
             </div>
     </div>
        <script src="assets/js/search.js"></script>

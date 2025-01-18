@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.sql.Date" %>
 <%@ page import="fleur.Fleur" %>
 <%@ page import="fleur.Fonction" %>
 <%@ page import="java.io.IOException" %>
@@ -28,6 +29,9 @@
     String endDate = request.getParameter("end-date"); // Récupère la date de fin
     String promo = request.getParameter("promo"); // Récupère le nom
 
+    Date debut=Date.valueOf(startDate);
+    Date fin=Date.valueOf(endDate);
+
     int proms = 0;
     try {
         proms = Integer.parseInt(promo); // Vérifier si le paramètre promo est un entier valide
@@ -36,7 +40,7 @@
         return; // Arrête l'exécution si la conversion échoue
     }
 
-    Promotion prom = new Promotion(idFleur, proms, endDate, startDate);
+    // Promotion prom = new Promotion(idFleur, proms, endDate, startDate);
     // Afficher les valeurs récupérées pour débogage (facultatif)
     System.out.println("Fleur ID: " + fleurId);
     System.out.println("Start Date: " + startDate);
@@ -44,7 +48,7 @@
 
     try {
         // Appel de la méthode qui pourrait lancer une SQLException
-        pro.insertPromotion(startDate, endDate, promo, fleurId);
+        pro.insertPromotion(idFleur, proms, startDate,endDate );
 
         // Si l'insertion réussie, rediriger vers une autre page ou afficher un message de succès
         out.println("<p>Insertion réussie !</p>");
