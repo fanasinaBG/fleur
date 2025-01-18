@@ -205,7 +205,7 @@ position: absolute;
  border-radius: 10px;
  overflow: hidden;
  background-color: #fff;
- margin-top: -685px;
+ margin-top: 1685px;
  margin-left: 42px;
 }
 .search-bar input[type="text"] {
@@ -244,7 +244,7 @@ position: absolute;
  max-height: 550px; /* Limite la hauteur de la liste */
  overflow-y: auto; /* Ajoute une barre de défilement si nécessaire */
  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
- margin-top: -640px;
+ margin-top: -740px;
  margin-left: 42px;
 }
 

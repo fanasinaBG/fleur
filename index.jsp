@@ -10,6 +10,9 @@
 <%@ page import="fleur.Fleur" %>
 <%@ page import="fleur.RequeteFleurCategorie" %>
 <%@ page import="fleur.FleursCategories" %>
+<%@ page import="promotion.RequetePromotion" %>
+<%@ page import="promotion.PromFleur" %>
+<%@ page import="promotion.Promotion" %>
 <%
     // Créer une instance de votre DAO et récupérer la liste des catégories
     RequeteCategorie Category = new RequeteCategorie();
@@ -18,6 +21,10 @@
     List<Fleur> fleurs = fonction.getShuffledFleurs(6);
     List<FleursCategories> FleurCategorie = RequeteFleurCategorie.fleurCategory();
     session.setAttribute("FleurCategorie", FleurCategorie); // Stocker dans la session
+
+    RequetePromotion pro=new RequetePromotion();
+    List<PromFleur> promo=pro.fleurPromotion();
+
 %>
 
 
@@ -172,6 +179,23 @@
             <% 
                 }
              %>
+    </div>
+    <div class="promotion">
+        <H1>Nos promotion</H1>
+            <div class="promo">
+                <% for (PromFleur promotion : promo) {%>
+                    <div class="image-item">
+                        <div class="img-container">
+                            <img src="<%=request.getContextPath() + promotion.getImages() %>"alt="Image 1" class="fleurImage2">
+                            </div>
+                        <div class="image-details">
+                            <h4><%=promotion.getNomFleur()%></h4>
+                            <p><%=promotion.getPrixFleur() %> €</p>
+                            <p>-<%=promotion.getPromotion()%>%</p>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
     </div>
        <script src="assets/js/search.js"></script>
      <script src="assets/js/script.js"></script> 

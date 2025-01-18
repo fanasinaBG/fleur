@@ -22,12 +22,19 @@ CREATE TABLE fleur (
     quantite INT
 );
 
+drop table promotion;
+drop view vue_fleurs_promotions;
 create table promotion(
     id SERIAL PRIMARY KEY, 
     idFleur INT,
     promotion INT,
-    dateFin DATE
+    dateFin DATE,
+    dateDebut DATE
 );
+
+select * from fleur;
+
+select * from promotion;
 
 CREATE VIEW vue_fleurs_promotions AS
 SELECT 
@@ -37,7 +44,8 @@ SELECT
     f.images,
     f.quantite,
     p.promotion,
-    p.dateFin
+    p.dateFin,
+    p.dateDebut
 FROM 
     fleur f
  JOIN 
@@ -46,7 +54,7 @@ ON
     f.id = p.idFleur;
 
 
-insert into promotion(idFleur,promotion,dateFin)values(1,25,'2025-12-31');
+insert into promotion(idFleur,promotion,dateFin,dateDebut)values(1,25,'2025-12-31','2026-12-31');
 
 
 CREATE table FleurCategory(
@@ -204,6 +212,8 @@ insert into category(nomCategory)VALUES('Fleurs vivaces');
 insert into category(nomCategory)VALUES('Fleurs verte');
 insert into category(nomCategory)VALUES('Fleurs nocturene');
 
+select * from fleur; 
+
 
 
 
@@ -216,6 +226,11 @@ insert into fleur(nomFleur,prix,idCategory,images,quantite)VALUES('Sansevieria t
 =======
 drop view vue_fleurs_categories;
 insert into FleurCategory(idFleur,idCategory)values(1,1);
+insert into FleurCategory(idFleur,idCategory)values(2,2);
+insert into FleurCategory(idFleur,idCategory)values(3,3);
+insert into FleurCategory(idFleur,idCategory)values(4,4);
+insert into FleurCategory(idFleur,idCategory)values(5,5);
+insert into FleurCategory(idFleur,idCategory)values(6,6);
 insert into fleur(nomFleur,prix,images,quantite)VALUES('Monstera deliciosa',38,'/assets/images/Monstera deliciosa.jpg',100);
 insert into fleur(nomFleur,prix,images,quantite)VALUES('Ficus elastica',48,'/assets/images/Ficus elastica.jpg',100);
 insert into fleur(nomFleur,prix,images,quantite)VALUES('Chlorophytum comosum',58,'/assets/images/Chlorophytum comosum.jpg',100);

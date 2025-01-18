@@ -1,0 +1,213 @@
+/* Reset */
+body, h1, h4, p, a, button, input {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+}
+
+/* Header styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px 40px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header .group-parent {
+    display: flex;
+    align-items: center;
+}
+
+.header .home-parent div {
+    margin-right: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #555;
+    text-transform: capitalize;
+}
+
+.header .mdiaccount-alert-outline-parent img {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.header .skinclinic {
+    font-weight: 700;
+    font-size: 24px;
+    color: #2a9d8f;
+}
+
+/* Banner styles */
+.banner {
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+
+.banner .scandinavian-interior-mockup-w-icon {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.rectangle-div {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 50px;
+    background: rgba(42, 157, 143, 0.8);
+    border-radius: 10px;
+}
+
+/* Category section */
+.category {
+    padding: 40px 20px;
+}
+
+.category .explore p {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2a9d8f;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.category .content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.block-02 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+}
+
+.image2 {
+    flex: 1;
+    max-width: 300px;
+    text-align: center;
+}
+
+.image-container1 img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.image-container1 img:hover {
+    transform: scale(1.05);
+}
+
+/* Products section */
+.scroll-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.image-item {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.image-item:hover {
+    transform: translateY(-5px);
+}
+
+.img-container img {
+    width: 100%;
+    height: auto;
+}
+
+.image-details {
+    padding: 10px;
+    text-align: center;
+}
+
+.image-details h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.image-details p {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Promotion section */
+.promotion {
+    padding: 40px 20px;
+    background: #f4f4f4;
+    text-align: center;
+}
+
+.promotion h1 {
+    color: #e76f51;
+    margin-bottom: 20px;
+}
+
+.promo {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Search bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    gap: 10px;
+}
+
+.search-bar input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #2a9d8f;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #21867a;
+}
+
+/* Footer styles */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}

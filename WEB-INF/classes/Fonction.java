@@ -24,6 +24,7 @@ public class Fonction {
             while (resultSet.next()) {
                 String nomFleur = resultSet.getString("nomFleur");
                 int prix = resultSet.getInt("prix");
+                
                 // String descriptions = resultSet.getString("descriptions");
                 String images = resultSet.getString("images");
                 int categoryId = resultSet.getInt("category_id");
@@ -39,6 +40,31 @@ public class Fonction {
                 System.out.println("Category ID: " + categoryId);
                 //System.out.println("Nom Category: " + nomCategory);
                 System.out.println("----------------------------");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return fleurs;
+    }
+
+    public List<Fleur>  fetchsCategories() {
+        List<Fleur> fleurs= new ArrayList<>();
+        String query = "SELECT * FROM fleur";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+
+            // Parcourir les résultats
+            while (resultSet.next()) {
+                String nomFleur = resultSet.getString("nomFleur");
+                int id = resultSet.getInt("id");
+
+                Fleur fleur = new Fleur(id,nomFleur );
+                fleurs.add(fleur);
+
+                // Afficher les données (ou les traiter selon vos besoins)
+    
             }
         } catch (Exception e) {
             e.printStackTrace();

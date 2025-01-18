@@ -9,6 +9,15 @@ public class PromFleur {
     private int promotion;
     private String dateFin;
     
+    public PromFleur(int idFleur, String nomFleur, int prixFleur, String images, int promotion, String dateFin) {
+        this.idFleur = idFleur;
+        this.nomFleur = nomFleur;
+        this.prixFleur = prixFleur;
+        this.images = images;
+        this.promotion = promotion;
+        this.dateFin = dateFin;
+    }
+
     public PromFleur() {
     }
 
