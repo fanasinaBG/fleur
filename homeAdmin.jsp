@@ -37,6 +37,7 @@
 <%
     RequetComande command = new RequetComande();
      List<Commande> commandes = command.getCommande();
+     re
 %>
  <h1>Liste des Commandes</h1>
     <table>
@@ -74,6 +75,9 @@
 
     <a href="gestionFleur.jsp">
         gestion fleure
+    </a>
+    <a href="voirVente.jsp">
+        les
     </a>
 </body>
 </html>

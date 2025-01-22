@@ -141,6 +141,8 @@ CREATE TABLE commande (
     prixUnitaire Int
 );
 
+
+
 drop table commande;
 
 drop table Livraison;
@@ -196,6 +198,7 @@ JOIN
 
 select * from fleur where id=2;
 drop Table paymentDetail;
+select * from fleur;
 
 
 select * from pay; 
@@ -204,6 +207,18 @@ SELECT nomFleur, nomCategory FROM vue_fleurs_categories WHERE nomFleur LIKE 'Coq
 insert into Admins(nomAdmins,email,mdp)VALUES('fanasina', 'fanasinabg@gmail.com','bogosy');
 insert into paymentDetail(numero,idPayment)VALUES('5555 5555 5555 4444', 1);
 insert into paymentDetail(numero,idPayment)VALUES('4111 1111 1111 1111', 2);
+
+UPDATE fleur SET prix=18000 WHERE id=1;
+UPDATE fleur SET prix=35000 WHERE id=2;
+UPDATE fleur SET prix=38000 WHERE id=3;
+UPDATE fleur SET prix=15000 WHERE id=4;
+UPDATE fleur SET prix=19000 WHERE id=5;
+UPDATE fleur SET prix=30000 WHERE id=6;
+UPDATE fleur SET prix=40000 WHERE id=7;
+UPDATE fleur SET prix=25000 WHERE id=8;
+UPDATE fleur SET prix=10000 WHERE id=9;
+UPDATE fleur SET prix=80000 WHERE id=10;
+UPDATE fleur SET prix=180000 WHERE id=11;
 
 insert into evenement(nomEvenement)VALUES('quotidient');
 insert into evenement(nomEvenement)VALUES('evenement');

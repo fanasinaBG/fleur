@@ -55,6 +55,7 @@
             </tbody>
         </table>
         <a href="Traitement/annuler.jsp" onclick="return confirm('Êtes-vous sûr de vouloir vider votre panier ?');">Annuler</a>
+         <a href="Traitement/achater.jsp" onclick="return confirm('Êtes-vous sûr de vouloir acheter ?');">Acheter</a>
     <%
         }
     %>
