@@ -1,4 +1,5 @@
 package vente;
+import java.sql.Date;
 public class VueVente {
     private int id_vente;
     private String nom_client;
@@ -7,11 +8,14 @@ public class VueVente {
     private int prix_fleur;
     private String images_fleur;
     private int id_Client;
+    private Date date;
+
 
     
     
+   
     public VueVente(int id_vente, String nom_client, int id_fleur, String nom_fleur, int prix_fleur,
-            String images_fleur, int id_Client) {
+            String images_fleur, int id_Client, Date date) {
         this.id_vente = id_vente;
         this.nom_client = nom_client;
         this.id_fleur = id_fleur;
@@ -19,6 +23,7 @@ public class VueVente {
         this.prix_fleur = prix_fleur;
         this.images_fleur = images_fleur;
         this.id_Client = id_Client;
+        this.date = date;
     }
     public int getId_vente() {
         return id_vente;
@@ -61,6 +66,14 @@ public class VueVente {
     }
     public void setId_Client(int id_Client) {
         this.id_Client = id_Client;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     

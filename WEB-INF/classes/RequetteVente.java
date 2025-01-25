@@ -4,14 +4,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import connection.DatabaseConnection;
+import java.sql.Date;
 
 public class RequetteVente {
     public void createLivraison(Vente vente) {
-        String sql = "INSERT INTO Vente (idClient, idFleur) VALUES (?,?)";
+        String sql = "INSERT INTO Vente (idClient, idFleur,dateVente) VALUES (?,?,?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt (1, vente.getIdClient());
             stmt.setInt(2, vente.getIdFleur());
+            stmt.setDate(3, vente.getDateVente());
             int rowsAffected = stmt.executeUpdate();
          // Vérifiez si des lignes ont été insérées
          if (rowsAffected > 0) {
@@ -24,8 +26,8 @@ public class RequetteVente {
     }
     
     }
-    public void insertVente(int idClient, int idFleur) {
-        String sql = "INSERT INTO vente (idClient, idFleur) VALUES (?, ?)";
+    public void insertVente(int idClient, int idFleur,Date vente) {
+        String sql = "INSERT INTO vente (idClient, idFleur,dateVente) VALUES (?, ?,?)";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -33,6 +35,7 @@ public class RequetteVente {
             // Définir les paramètres de la requête
             stmt.setInt(1, idClient);  // idMpividy
             stmt.setInt(2, idFleur);   // idFleur
+            stmt.setDate(3, vente);  
 
             // Exécuter la requête d'insertion
             int rowsAffected = stmt.executeUpdate();

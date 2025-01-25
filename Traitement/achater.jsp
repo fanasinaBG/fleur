@@ -2,6 +2,9 @@
 <%@ page import="vente.Vente" %>
 <%@ page import="vente.RequetteVente" %>
 <%@ page import="fleur.FleursCategories" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ page import="java.sql.Date" %>
 
 <!DOCTYPE html>
 <html>
@@ -14,6 +17,8 @@
         List<FleursCategories> cart = (List<FleursCategories>) session.getAttribute("cart");
         Object idClient=session.getAttribute("idClient");
         int idClients = 0;
+        LocalDate date=LocalDate.now();
+        java.sql.Date sqlDate = java.sql.Date.valueOf(date);
 
             if (idClient != null) {
             // Assurez-vous que l'ID du client est bien une chaîne avant de le convertir
@@ -26,7 +31,7 @@
             out.println("Erreur : Aucun ID client trouvé dans la session.");
         }
     %>
-    <p><%= idClients %> le id est </p>
+    <p><%= idClients %> le id est ary ny date androany dia <%= sqlDate%> </p>
     <a href="../login.jsp">Se connecter</a>
         <%
 
@@ -41,7 +46,7 @@
             // Parcourir les éléments du panier et insérer dans la base de données
             for (FleursCategories fleur : cart) {
                 // Vente vente = new Vente(idClients, fleur.getFleur_id());
-                requetteVente.insertVente(idClients, fleur.getFleur_id());
+                requetteVente.insertVente(idClients, fleur.getFleur_id(), sqlDate);
             }
 
             // Vider le panier après l'achat

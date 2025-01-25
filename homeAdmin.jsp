@@ -5,6 +5,14 @@
 <%@ page import="connection.DatabaseConnection" %>
 <%@ page import="commande.Commande" %>
 <%@ page import="commande.RequetComande" %>
+<%@ page import="vente.RequetteVueVente" %>
+<%@ page import="vente.VueVente" %>
+<%@ page import="java.sql.Date" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.Iterator" %>
+
+
+
 
 
 <!DOCTYPE html>
@@ -37,7 +45,7 @@
 <%
     RequetComande command = new RequetComande();
      List<Commande> commandes = command.getCommande();
-     re
+
 %>
  <h1>Liste des Commandes</h1>
     <table>
@@ -79,5 +87,63 @@
     <a href="voirVente.jsp">
         les
     </a>
+
+    <h1>Liste des ventes</h1>
+    <%
+        RequetteVueVente vente= new RequetteVueVente();
+          List<VueVente> achat= vente.getVente();
+        //   Map<String, Integer> clientTotalPrices=vente.getTotalPricesPerClient();
+    %>
+        <table>
+            <thead>
+            <tr>
+                <th>Client</th>
+                <th>Produit</th>
+                <th>prix</th>
+                <th>date d'achat</th>
+            </tr>
+         </thead>
+        <tbody>
+        <%
+           for(VueVente ventes : achat){ 
+        %>
+        <tr>
+                    <td><%= ventes.getNom_client() %></td>
+                    <td><%= ventes.getNom_fleur() %></td>
+                    <td><%= ventes.getPrix_fleur() %> AR</td>
+                    <td><%= ventes.getDate() %></td>
+        </tr>
+        </tbody>
+        <% }%>
+        </table>
+
+        <h1>Liste des remises</h1>
+        <% 
+            Map<String, Integer> clientTotalPrices = vente.getTotalPricesPerClient();
+            
+        %>
+
+         <table>
+            <thead>
+                <tr>
+                    <th>Client</th>
+                    <th>total prix</th>
+                </tr>
+            </thead>
+            <tbody>
+               <%
+                 for (Map.Entry<String, Integer> entry : clientTotalPrices.entrySet()) {
+                    %>
+                 
+                <tr>
+                        <td><%=  entry.getKey() %></td>
+                        <td><%= (entry.getValue() * 10)/100 %> AR</td>
+                </tr>
+            </tbody>
+            <%
+            }
+            %>
+        <table>
+
 </body>
 </html>
