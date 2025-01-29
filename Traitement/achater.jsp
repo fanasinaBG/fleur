@@ -50,7 +50,7 @@
             }
 
             // Vider le panier après l'achat
-            session.removeAttribute("cart");
+            session.removeAttribute("cart");    
     %>
         <p>Achat réussi ! Merci pour votre commande.</p>
         <a href="../index.jsp">Retour à l'accueil</a>
